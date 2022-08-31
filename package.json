@@ -1,0 +1,29 @@
+{
+  "name": "my-dood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "cd ./server && nodemon server.js",
+    "dev:client": "cd ./client && npm start",
+    "start": "cd ./server && npm start",
+    "dev": "concurrently \"npm run dev:server\"  \"npm run dev:client\"",
+    "seed:todos": "cd ./server/seeds && node todo.js",
+    "install:client": "cd ./client && npm i",
+    "install:server": "cd ./server && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savoryboi/my-dood.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/savoryboi/my-dood/issues"
+  },
+  "homepage": "https://github.com/savoryboi/my-dood#readme",
+  "dependencies": {
+    "concurrently": "^7.3.0"
+  }
+}

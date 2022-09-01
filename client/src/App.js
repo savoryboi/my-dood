@@ -1,10 +1,8 @@
-import './App.css';
-import { Header, Timeline, FriendsList} from './components'
+import "./App.css";
+import { Header, Timeline, FriendsList, Draw } from "./components";
 
 function App() {
-  return (
-null
-  );
+  return <Draw />;
 }
 
 export default App;

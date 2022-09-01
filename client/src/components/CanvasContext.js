@@ -22,6 +22,8 @@ export const CanvasProvider = ({ children }) => {
     context.strokeStyle = "black";
     context.lineWidth = 5;
     contextRef.current = context;
+
+    // setUndoArray(context.getImageData(0, 0, canvas.width, canvas.height));
   };
 
   const startDrawing = ({ nativeEvent }) => {
@@ -41,7 +43,7 @@ export const CanvasProvider = ({ children }) => {
         ...undoArray,
         context.getImageData(0, 0, canvas.width, canvas.height)
       ],
-      console.log("array")
+      console.log(undoArray)
     );
     setIndex(index + 1);
     console.log(undoArray);
@@ -66,13 +68,17 @@ export const CanvasProvider = ({ children }) => {
     setIndex(-1);
   };
 
-  const undoLast = () => {
+  const undoLast = async () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
+    if(undoArray.length <= 1) {
+      clearCanvas();
+      return;
+    };
 
-    setIndex(index - 1);
+    // setIndex(index - 1);
     setUndoArray(undoArray.slice(0, -1));
-    context.putImageData(undoArray[index], 0, 0);
+    return context.putImageData(undoArray[undoArray.length - 2], 0, 0);
   };
 
   return (

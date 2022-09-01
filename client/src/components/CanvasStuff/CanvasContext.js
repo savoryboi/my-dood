@@ -14,10 +14,10 @@ export const CanvasProvider = ({ children }) => {
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
-    canvas.width = 500 * 2;
-    canvas.height = 800 * 2;
-    canvas.style.width = `500px`;
-    canvas.style.height = `800px `;
+    canvas.width = 355 * 2;
+    canvas.height = 650 * 2;
+    canvas.style.width = `355px`;
+    canvas.style.height = `650px `;
 
     const context = canvas.getContext("2d");
     context.scale(2, 2);

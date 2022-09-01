@@ -8,11 +8,24 @@ export const CanvasButtons = () => {
     <div className="drawButtons">
       <button onClick={undoLast}>Undo</button>
       <button onClick={clearCanvas}>Clear</button>
-      <button onClick={() => changeColor("black")}>Black</button>
-      <button onClick={() => changeColor("red")}>Red</button>
-      <button onClick={() => changeColor("green")}>Green</button>
-      <button onClick={() => changeColor("blue")}>Blue</button>
+      <button
+        onClick={() => changeColor("black")}
+        class="colorButton"
+        id="black"
+      />
+      <button onClick={() => changeColor("red")} class="colorButton" id="red" />
+      <button
+        onClick={() => changeColor("green")}
+        class="colorButton"
+        id="green"
+      />
+      <button
+        onClick={() => changeColor("blue")}
+        class="colorButton"
+        id="blue"
+      />
       <input
+        id="picker"
         type="color"
         value="color"
         onChange={e => changeColor(e.target.value)}

@@ -13,9 +13,8 @@ function App() {
   return (
     <div className="app">
       <Draw />
-      {/* <Header logo={logo} user={user} />
 
-      <Routes>
+      {/* <Routes>
         <Route
           path="/"
           element={

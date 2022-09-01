@@ -18,6 +18,49 @@ canvas {
   cursor: pointer;
 }
 
+.drawButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.drawButtons .colorButton {
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid rgb(184, 184, 184);
+  align-self: center;
+  margin: 0 5px;
+}
+
+#black {
+  background: black;
+}
+
+#red {
+  background: red;
+}
+
+#green {
+  background: green;
+}
+
+#blue {
+  background: blue;
+}
+
+#picker {
+  align-self: center;
+  margin: 0 5px;
+  height: 40px;
+}
+
 .App {
   text-align: center;
 }

@@ -1,10 +1,16 @@
-import { CanvasProvider } from "../components/CanvasStuff/Canvas";
+import { CanvasProvider } from "../components/CanvasStuff/CanvasContext";
 import { Canvas } from "../components/CanvasStuff/Canvas";
+import { ClearCanvasButton } from "../components/CanvasStuff/ClearCanvasButton";
+import { UndoCanvasButton } from "../components/CanvasStuff/UndoCanvasButton";
 
 function Draw() {
-  <CanvasProvider>
-    <Canvas />
-  </CanvasProvider>;
+  return (
+    <CanvasProvider>
+      <Canvas />
+      <ClearCanvasButton />
+      <UndoCanvasButton />
+    </CanvasProvider>
+  );
 }
 
 

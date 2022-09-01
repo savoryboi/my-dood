@@ -4,7 +4,13 @@ import Timeline from "./components/Timeline";
 import FriendsList from "./components/FriendsList";
 import Draw from "./components/Draw";
 function App() {
-  return <Draw />;
+  return (
+    <div>
+      <Header />
+      
+    </div>
+
+  )
 }
 
 export default App;

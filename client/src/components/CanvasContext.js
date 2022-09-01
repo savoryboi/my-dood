@@ -80,7 +80,6 @@ export const CanvasProvider = ({ children }) => {
       return;
     }
 
-    // setIndex(index - 1);
     setUndoArray(undoArray.slice(0, -1));
     return context.putImageData(undoArray[undoArray.length - 2], 0, 0);
   };

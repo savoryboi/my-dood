@@ -28,6 +28,7 @@ const typeDefs = gql`
         addPost(img: String!, text: String!): Post
     }
 
+    
 
 `
 

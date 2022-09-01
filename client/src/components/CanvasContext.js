@@ -8,16 +8,20 @@ export const CanvasProvider = ({ children }) => {
   const [isDrawing, setIsDrawing] = useState(false);
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
+  const startFill = "white";
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
-    canvas.width = window.innerWidth * 2;
-    canvas.height = window.innerHeight * 2;
-    canvas.style.width = `${window.innerWidth}px `;
-    canvas.style.height = `${window.innerHeight}px `;
+    canvas.width = 500;
+    canvas.height = 800;
+    // canvas.width = window.innerWidth * 2;
+    // canvas.height = window.innerHeight * 2;
+    // canvas.style.width = `${window.innerWidth}px`;
+    // canvas.style.height = `${window.innerHeight}px `;
 
     const context = canvas.getContext("2d");
     context.scale(2, 2);
+
     context.lineCap = "round";
     context.strokeStyle = "black";
     context.lineWidth = 5;
@@ -62,7 +66,7 @@ export const CanvasProvider = ({ children }) => {
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    context.fillStyle = "white";
+    context.fillStyle = startFill;
     context.fillRect(0, 0, canvas.width, canvas.height);
     setUndoArray([]);
     setIndex(-1);
@@ -71,10 +75,10 @@ export const CanvasProvider = ({ children }) => {
   const undoLast = async () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    if(undoArray.length <= 1) {
+    if (undoArray.length <= 1) {
       clearCanvas();
       return;
-    };
+    }
 
     // setIndex(index - 1);
     setUndoArray(undoArray.slice(0, -1));

@@ -8,7 +8,9 @@ import { Canvas } from "./components/Canvas";
 function App() {
   return (
     <div>
+
       <Draw />
+
     </div>
   );
 }

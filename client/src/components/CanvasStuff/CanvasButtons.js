@@ -2,7 +2,7 @@ import React from "react";
 import { useCanvas } from "./CanvasContext";
 
 export const CanvasButtons = () => {
-  const { undoLast, clearCanvas, changeColor } = useCanvas();
+  const { undoLast, clearCanvas, changeColor, changeWeight } = useCanvas();
 
   return (
     <div className="drawButtons">
@@ -16,6 +16,14 @@ export const CanvasButtons = () => {
         type="color"
         value="color"
         onChange={e => changeColor(e.target.value)}
+      />
+      <input
+        type="range"
+        min="3"
+        max="20"
+        defaultValue="5"
+        class="pen-range"
+        onChange={e => changeWeight(e.target.value)}
       />
     </div>
   );

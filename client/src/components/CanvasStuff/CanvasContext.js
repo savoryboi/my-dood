@@ -10,6 +10,7 @@ export const CanvasProvider = ({ children }) => {
   const contextRef = useRef(null);
   const startFill = "white";
   let lineColor = "black";
+  let lineWeight = 5;
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
@@ -23,7 +24,7 @@ export const CanvasProvider = ({ children }) => {
 
     context.lineCap = "round";
     context.strokeStyle = lineColor;
-    context.lineWidth = 5;
+    context.lineWidth = lineWeight;
     contextRef.current = context;
 
     // setUndoArray(context.getImageData(0, 0, canvas.width, canvas.height));
@@ -32,6 +33,11 @@ export const CanvasProvider = ({ children }) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     context.strokeStyle = color;
+  };
+  const changeWeight = weight => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.lineWidth = weight;
   };
 
   const startDrawing = ({ nativeEvent }) => {
@@ -99,7 +105,8 @@ export const CanvasProvider = ({ children }) => {
         clearCanvas,
         draw,
         undoLast,
-        changeColor
+        changeColor,
+        changeWeight
       }}
     >
       {children}

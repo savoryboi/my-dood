@@ -44,7 +44,7 @@ export const CanvasProvider = ({ children }) => {
       console.log("array")
     );
     setIndex(index + 1);
-    console.log(undoArray);
+    console.log(context.getImageData(0, 0, canvas.width, canvas.height));
     console.log(index);
   };
 
@@ -66,12 +66,13 @@ export const CanvasProvider = ({ children }) => {
     setIndex(-1);
   };
 
-  const undoLast = () => {
+  const undoLast = async () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
     setIndex(index - 1);
-    setUndoArray(undoArray.slice(0, -1));
+    await setUndoArray(undoArray.slice(0, -1));
+    console.log(undoArray);
     context.putImageData(undoArray[index], 0, 0);
   };
 

@@ -1,10 +1,10 @@
-import './App.css';
-import { Header, Timeline, FriendsList} from './components'
-
+import "./App.css";
+import Header from "./components/Header";
+import Timeline from "./components/Timeline";
+import FriendsList from "./components/FriendsList";
+import Draw from "./components/Draw";
 function App() {
-  return (
-null
-  );
+  return <Draw />;
 }
 
 export default App;

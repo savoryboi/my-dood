@@ -5,6 +5,12 @@ body {
   background: gray;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 canvas {
   background: white;
   box-shadow: -3px 2px 9px 6px black;

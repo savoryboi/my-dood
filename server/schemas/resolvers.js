@@ -1,6 +1,6 @@
-const Users = require('../models/Users');
-const Posts = require('../models/Posts');
-const Users = require('../models/Users');
+const Users = require('../models/User');
+const Posts = require('../models/Post');
+
 
 const resolvers = {
     Query: {

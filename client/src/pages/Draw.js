@@ -1,7 +1,7 @@
-import { CanvasProvider } from "../components/CanvasContext";
-import { Canvas } from "../components/Canvas";
-import { ClearCanvasButton } from "../components/ClearCanvasButton";
-import { UndoCanvasButton } from "../components/UndoCanvasButton";
+import { CanvasProvider } from "../components/CanvasStuff/CanvasContext";
+import { Canvas } from "../components/CanvasStuff/Canvas";
+import { ClearCanvasButton } from "../components/CanvasStuff/ClearCanvasButton";
+import { UndoCanvasButton } from "../components/CanvasStuff/UndoCanvasButton";
 
 function Draw() {
   return (
@@ -12,5 +12,6 @@ function Draw() {
     </CanvasProvider>
   );
 }
+
 
 export default Draw;

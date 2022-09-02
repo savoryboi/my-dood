@@ -21,7 +21,7 @@ canvas {
   border-top: 0;
   border-radius: 0 0 35px 35px;
   background: var(--light-grey);
-  padding-top: 10px;
+  padding: 10px 0;
 }
 
 .drawButtons .colorButton {
@@ -42,41 +42,41 @@ canvas {
 }
 
 #black {
-  background: black;
+  background: #30323d;
 }
 
 #brown {
-  background: brown;
+  background: #642609;
 }
 
 #red {
-  background: red;
+  background: #c31418;
 }
 
 #orange {
-  background: orange;
+  background: #f76a0e;
 }
 
 #yellow {
-  background: yellow;
-}
-
-#blue {
-  background: blue;
+  background: #eacd1e;
 }
 
 #green {
-  background: green;
+  background: #66ab09;
+}
+
+#blue {
+  background: #137de0;
 }
 
 #purple {
-  background: purple;
+  background: #8809b5;
 }
 
 #revise button {
   background: var(--blue);
   height: 28px;
-  width: 50px;
+  width: 51px;
   margin: 3px;
   border-radius: 20px;
   border: 2px solid var(--sage);
@@ -87,8 +87,8 @@ canvas {
   appearance: auto;
   align-self: center;
   margin: 5px 5px;
-  height: 35px;
-  width: 132px;
+  height: 30px;
+  width: 165px;
   padding: 0px 3px;
   border-radius: 0px;
   border: 2px solid var(--light-grey);
@@ -96,7 +96,7 @@ canvas {
 }
 
 #pen-range {
-  width: 128px;
-  margin: 10px 10px;
+  width: 155px;
+  margin: 5px 10px;
   cursor: pointer;
 }

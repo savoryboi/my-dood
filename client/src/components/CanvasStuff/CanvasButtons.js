@@ -20,46 +20,46 @@ export const CanvasButtons = () => {
             id="white"
           />
           <button
-            onClick={() => changeColor("black")}
+            onClick={() => changeColor("#30323d")}
             class="colorButton"
             id="black"
           />
           <button
-            onClick={() => changeColor("brown")}
+            onClick={() => changeColor("#642609")}
             class="colorButton"
             id="brown"
           />
         </div>
         <div>
           <button
-            onClick={() => changeColor("red")}
+            onClick={() => changeColor("#C31418")}
             class="colorButton"
             id="red"
           />
           <button
-            onClick={() => changeColor("orange")}
+            onClick={() => changeColor("#F76A0E")}
             class="colorButton"
             id="orange"
           />
           <button
-            onClick={() => changeColor("yellow")}
+            onClick={() => changeColor("#EACD1E")}
             class="colorButton"
             id="yellow"
           />
         </div>
         <div>
           <button
-            onClick={() => changeColor("blue")}
-            class="colorButton"
-            id="blue"
-          />
-          <button
-            onClick={() => changeColor("green")}
+            onClick={() => changeColor("#66AB09")}
             class="colorButton"
             id="green"
           />
           <button
-            onClick={() => changeColor("purple")}
+            onClick={() => changeColor("#137DE0")}
+            class="colorButton"
+            id="blue"
+          />
+          <button
+            onClick={() => changeColor("#8809B5")}
             class="colorButton"
             id="purple"
           />

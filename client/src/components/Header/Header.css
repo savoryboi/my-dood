@@ -56,23 +56,22 @@ header {
 .bm-menu-wrap {
   position: fixed;
   top: 58px !important;
-  height: 200px;
+  /* height: 200px !important; */
   width: 150px !important;
 }
 
 /* General sidebar styles */
 .bm-menu {
   /* padding: 2.5em 1.5em 0; */
-  font-size: 1.15em;
+  font-size: 1em;
   text-align: right;
-  border-radius: 25px 0px 0px 25px;
+  /* border-radius: 25px 0px 0px 25px; */
   width: 150px;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-  background: var(--blue);
-  color: #b8b7ad;
+  background: #cdd1cde3;
   padding: 0.8em;
   align-items: right;
   width: 150px;
@@ -82,9 +81,10 @@ header {
 .bm-item {
   display: inline-block;
   text-decoration: none;
-  color: var(--sage);
+  color: var(--blue);
   font-size: 28px;
   padding: 5px 0;
+  font-weight: bold;
 }
 
 /* Styling of overlay */

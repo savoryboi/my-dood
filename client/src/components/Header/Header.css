@@ -55,28 +55,28 @@ header {
 
   .bm-menu-wrap {
     position: fixed;
+    top: 78px!important;
     height: 200px;
-    transition: ''!important;
+    width: 150px!important;
   }
-
   
   /* General sidebar styles */
   .bm-menu {
-    background: var(--blue);
     /* padding: 2.5em 1.5em 0; */
     font-size: 1.15em;
     text-align: right;
     border-radius: 25px 0px 0px 25px;
+    width: 150px;
 
-  }
-  Menu {
-    height: 200px;
   }
   
   /* Wrapper for item list */
   .bm-item-list {
+    background: var(--blue);
     color: #b8b7ad;
     padding: 0.8em;
+    align-items: right;
+    width: 150px;
   }
   
   /* Individual item */
@@ -90,5 +90,5 @@ header {
   
   /* Styling of overlay */
   .bm-overlay {
-    background: var(--blue);
+    background: none!important;
   }

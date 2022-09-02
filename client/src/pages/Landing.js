@@ -2,7 +2,7 @@
 
 function Landing() {
   return (
-    <main>
+    <main className='landing'>
       <h1>Welcome to MyDood, my dude!</h1>
       <div className='container'>
         <form className='login-form'>

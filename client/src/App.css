@@ -1,8 +1,22 @@
+:root {
+  --yellow: #E8C547;
+  --blue: #5C80BC;
+  --dark-grey: #30323D;
+  --light-grey: #4D5061;
+  --sage: #cdd1cd;
+}
+
 body {
   margin: 0px;
   padding: 30px;
   overflow: hidden;
-  background: rgb(226, 226, 122);
+  background: var(--yellow);
+}
+
+
+/* header styles */
+.page-wrap {
+  color: var(--blue)
 }
 
 .app {
@@ -160,6 +174,7 @@ canvas {
   margin: 0 10px;
   height: 40px;
 }
+
 
 @keyframes App-logo-spin {
   from {

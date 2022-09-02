@@ -13,7 +13,7 @@ const handleRegistration = async (e) => {
   e.preventDefault();
 }
 
-function Landing() {
+function Landing(props) {
 
   const [formInput, setFormInput] = useState({
     email: '',

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { reveal as Menu } from 'react-burger-menu';
+import { slide as Menu } from 'react-burger-menu';
 import './Header.css';
 
 function Header() {
@@ -8,19 +8,17 @@ function Header() {
   };
    
     return (
-      <div>
-        <div id="outer-container">
-          <Menu right onStateChange={ isMenuOpen } pageWrapId={"page-wrap"} outerContainerId={"outer-container"} >
-
-          <main id="page-wrap">
-            <a id="home" className="menu-item" href="/">Home</a>
-            <a id="about" className="menu-item" href="/about">About</a>
-            <a id="contact" className="menu-item" href="/contact">Contact</a>
+      <header>
+        <h1 className='logo'>MyDood</h1>
+          <Menu right className='bm-menu'>
+            <a id="home" className="bm-item" href="/">Home</a>
+            <a id="about" className="bm-item" href="/about">About</a>
+            <a id="contact" className="bm-item" href="/contact">Contact</a>
             {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
-          </main>
+
           </Menu>
-        </div>
-      </div>
+
+      </header>
     );
 }
 

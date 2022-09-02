@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import Timeline from "./components/Timeline";
 import FriendsList from "./components/FriendsList";
 import Landing from "./pages/Landing"
-import Draw from "./pages/Draw";
+import Draw from "./pages/Draw/Draw";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import FriendProfile from "./pages/FriendProfile";

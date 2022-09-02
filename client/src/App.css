@@ -2,7 +2,7 @@ body {
   margin: 0px;
   padding: 30px;
   overflow: hidden;
-  background: gray;
+  background: rgb(226, 226, 122);
 }
 
 .app {
@@ -13,8 +13,8 @@ body {
 
 canvas {
   background: white;
-  box-shadow: -3px 2px 9px 6px black;
-  border-radius: 50px;
+  border-radius: 35px;
+  border: 5px solid gray;
   cursor: pointer;
 }
 
@@ -25,10 +25,10 @@ canvas {
 }
 
 .drawButtons .colorButton {
-  height: 40px;
-  width: 40px;
-  min-height: 40px;
-  max-height: 40px;
+  height: 35px;
+  width: 35px;
+  min-height: 35px;
+  max-height: 35px;
   cursor: pointer;
   display: inline-block;
   cursor: pointer;
@@ -36,31 +36,68 @@ canvas {
   border-radius: 50%;
   border: 2px solid rgb(184, 184, 184);
   align-self: center;
-  margin: 0 5px;
+  margin: 2.5px 2.5px;
+}
+
+#white {
+  background: white;
 }
 
 #black {
   background: black;
 }
 
+#brown {
+  background: brown;
+}
+
 #red {
   background: red;
 }
 
-#green {
-  background: green;
+#orange {
+  background: orange;
+}
+
+#yellow {
+  background: yellow;
 }
 
 #blue {
   background: blue;
 }
 
-#picker {
-  align-self: center;
-  margin: 0 5px;
-  height: 40px;
+#green {
+  background: green;
 }
 
+#purple {
+  background: purple;
+}
+
+#revise button {
+  height: 35px;
+  width: 60px;
+  margin: 2px 5px;
+  border-radius: 20px;
+  border: 2px solid rgb(184, 184, 184);
+}
+
+#picker {
+  appearance: auto;
+  align-self: center;
+  margin: 5px 5px;
+  height: 35px;
+  width: 132px;
+  padding: 0px 3px;
+  border-radius: 0px;
+  border: 0px solid rgb(184, 184, 184);
+}
+
+#pen-range {
+  width: 128px;
+  margin: 10px 10px;
+}
 .App {
   text-align: center;
 }
@@ -122,11 +159,6 @@ canvas {
   align-self: center;
   margin: 0 10px;
   height: 40px;
-}
-
-.pen-range {
-  align-self: center;
-  margin: 0 10px;
 }
 
 @keyframes App-logo-spin {

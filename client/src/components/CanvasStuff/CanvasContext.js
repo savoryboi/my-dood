@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-
+import axios from "axios";
 const CanvasContext = React.createContext();
 
 export const CanvasProvider = ({ children }) => {
@@ -15,9 +15,9 @@ export const CanvasProvider = ({ children }) => {
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
     canvas.width = 360 * 2;
-    canvas.height = 640 * 2;
+    canvas.height = 575 * 2;
     canvas.style.width = `360px`;
-    canvas.style.height = `640px `;
+    canvas.style.height = `575px `;
 
     const context = canvas.getContext("2d");
     context.scale(2, 2);
@@ -94,6 +94,35 @@ export const CanvasProvider = ({ children }) => {
     return context.putImageData(undoArray[undoArray.length - 2], 0, 0);
   };
 
+  const save = () => {
+    const canvas = canvasRef.current;
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    };
+    const form = new FormData();
+    canvas.toBlob(blob => {
+      form.append("image", blob);
+      axios.post("/api/image", form, config).then(res => {
+        console.log(res);
+      });
+    });
+    // form.append(
+    //   "image",
+    //   canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+    // );
+    // axios.post("/api/image", { text: "TESTEST" }).then(res => {
+    //   console.log(res);
+    // });
+
+    // const image = canvas
+    //   .toDataURL("image/png")
+    //   .replace("image/png", "image/octet-stream"); // here is the most important part because if you dont replace you will get a DOM 18 exception.
+
+    // window.location.href = image; // it will save locally
+  };
+
   return (
     <CanvasContext.Provider
       value={{
@@ -106,7 +135,8 @@ export const CanvasProvider = ({ children }) => {
         draw,
         undoLast,
         changeColor,
-        changeWeight
+        changeWeight,
+        save
       }}
     >
       {children}

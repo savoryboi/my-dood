@@ -2,7 +2,13 @@ import React from "react";
 import { useCanvas } from "./CanvasContext";
 
 export const CanvasButtons = () => {
-  const { undoLast, clearCanvas, changeColor, changeWeight } = useCanvas();
+  const {
+    undoLast,
+    clearCanvas,
+    changeColor,
+    changeWeight,
+    save
+  } = useCanvas();
 
   return (
     <div className="drawButtons">
@@ -63,6 +69,7 @@ export const CanvasButtons = () => {
         <div id="revise">
           <button onClick={undoLast}>Undo</button>
           <button onClick={clearCanvas}>Clear</button>
+          <button onClick={save}>Save</button>
         </div>
         <div>
           <div>

@@ -21,10 +21,10 @@ header {
 
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  right: 36px;
-  top: 28px;
+  width: 25px;
+  height: 25px;
+  right: 18px;
+  top: 18px;
 }
 
 /* Color/shape of burger icon bars */
@@ -55,7 +55,7 @@ header {
 
 .bm-menu-wrap {
   position: fixed;
-  top: 78px !important;
+  top: 58px !important;
   height: 200px;
   width: 150px !important;
 }

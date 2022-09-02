@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="app">
       <Draw />
-
+      
       {/* <Routes>
         <Route
           path="/"
@@ -60,8 +60,6 @@ function App() {
         />
       </Routes> */}
     </div>
-
-
   );
 }
 

@@ -14,20 +14,17 @@ import AuthForm from "./pages/AuthForm";
 function App() {
   return (
     <div className="app">
-      <Header />
-      <Draw />
       {/* <Draw /> */}
-
+      <Landing />
+      <Header />
       {/* <Routes>
         <Route
           path="/"
           element={
-            <Protect>
-              <Landing user={user} />
-            </Protect>
+              <Landing />
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/AuthForm"
           element={
             <Protect>
@@ -59,8 +56,8 @@ function App() {
               <Draw />
             </Protect>
           }
-        />
-      </Routes> */}
+        /> */}
+      {/* </Routes> */}
     </div>
   );
 }

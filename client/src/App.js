@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import FriendProfile from "./pages/FriendProfile";
 import AuthForm from "./pages/AuthForm";
 
+import Landing from "./pages/Landing";
+
 function App() {
   return (
     <div className="app">

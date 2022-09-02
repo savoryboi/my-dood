@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Timeline from "./components/Timeline";
 import FriendsList from "./components/FriendsList";
-import Landing from "./pages/Landing"
+import Landing from "./pages/Landing";
 import Draw from "./pages/Draw/Draw";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -15,8 +15,9 @@ function App() {
   return (
     <div className="app">
       <Header />
+      <Draw />
       {/* <Draw /> */}
-      
+
       {/* <Routes>
         <Route
           path="/"

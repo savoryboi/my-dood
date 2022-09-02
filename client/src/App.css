@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,700;1,100;1,400&family=Nunito:wght@200;300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,700;1,100;1,400&family=Nunito:wght@200;300&display=swap");
 
 :root {
-  --yellow: #E8C547;
-  --blue: #5C80BC;
-  --dark-grey: #30323D;
-  --light-grey: #4D5061;
+  --yellow: #e8c547;
+  --blue: #5c80bc;
+  --dark-grey: #30323d;
+  --light-grey: #4d5061;
   --sage: #cdd1cd;
-  --title: 'Bitter', serif;
+  --title: "Bitter", serif;
 }
 
 * {
@@ -14,7 +14,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body {
   margin: 0px;

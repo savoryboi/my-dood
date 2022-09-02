@@ -1,93 +1,101 @@
-/* .app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
-  
-  canvas {
-    background: white;
-    border-radius: 35px;
-    border: 5px solid gray;
-    cursor: pointer;
-  }
-  
-  .drawButtons {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-  }
-  
-  .drawButtons .colorButton {
-    height: 35px;
-    width: 35px;
-    min-height: 35px;
-    max-height: 35px;
-    cursor: pointer;
-    display: inline-block;
-    cursor: pointer;
-    box-sizing: border-box;
-    border-radius: 50%;
-    border: 2px solid rgb(184, 184, 184);
-    align-self: center;
-    margin: 2.5px 2.5px;
-  }
-  
-  #white {
-    background: white;
-  }
-  
-  #black {
-    background: black;
-  }
-  
-  #brown {
-    background: brown;
-  }
-  
-  #red {
-    background: red;
-  }
-  
-  #orange {
-    background: orange;
-  }
-  
-  #yellow {
-    background: yellow;
-  }
-  
-  #blue {
-    background: blue;
-  }
-  
-  #green {
-    background: green;
-  }
-  
-  #purple {
-    background: purple;
-  }
-  
-  #revise button {
-    height: 35px;
-    width: 60px;
-    margin: 2px 5px;
-    border-radius: 20px;
-    border: 2px solid rgb(184, 184, 184);
-  }
-  
-  #picker {
-    appearance: auto;
-    align-self: center;
-    margin: 5px 5px;
-    height: 35px;
-    width: 132px;
-    padding: 0px 3px;
-    border-radius: 0px;
-    border: 0px solid rgb(184, 184, 184);
-  }
-  
-  #pen-range {
-    width: 128px;
-    margin: 10px 10px;
-  }
+.canvascontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+canvas {
+  margin-top: 15px;
+  background: white;
+  border-radius: 35px 35px 0 0;
+  border: 5px solid var(--dark-grey);
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+.drawButtons {
+  display: flex;
+  justify-content: center;
+  width: 360px;
+  border: 5px solid var(--dark-grey);
+  border-top: 0;
+  border-radius: 0 0 35px 35px;
+  background: var(--light-grey);
+  padding-top: 10px;
+}
+
+.drawButtons .colorButton {
+  height: 28px;
+  width: 45px;
+  cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: 2px solid var(--sage);
+  align-self: center;
+  margin: 3px;
+}
+
+#white {
+  background: white;
+}
+
+#black {
+  background: black;
+}
+
+#brown {
+  background: brown;
+}
+
+#red {
+  background: red;
+}
+
+#orange {
+  background: orange;
+}
+
+#yellow {
+  background: yellow;
+}
+
+#blue {
+  background: blue;
+}
+
+#green {
+  background: green;
+}
+
+#purple {
+  background: purple;
+}
+
+#revise button {
+  height: 28px;
+  width: 45px;
+  margin: 3px;
+  border-radius: 20px;
+  border: 2px solid var(--sage);
+  cursor: pointer;
+}
+
+#picker {
+  appearance: auto;
+  align-self: center;
+  margin: 5px 5px;
+  height: 35px;
+  width: 132px;
+  padding: 0px 3px;
+  border-radius: 0px;
+  border: 2px solid var(--light-grey);
+  cursor: pointer;
+}
+
+#pen-range {
+  width: 128px;
+  margin: 10px 10px;
+  cursor: pointer;
+}

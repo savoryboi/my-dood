@@ -2,7 +2,6 @@ import "./App.css";
 import Header from "./components/Header";
 import Timeline from "./components/Timeline";
 import FriendsList from "./components/FriendsList";
-import Landing from "./pages/Landing"
 import Draw from "./pages/Draw";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -14,18 +13,16 @@ import Landing from "./pages/Landing";
 function App() {
   return (
     <div className="app">
-      <Draw />
-      
+      {/* <Draw /> */}
+      <Landing />
       {/* <Routes>
         <Route
           path="/"
           element={
-            <Protect>
-              <Landing user={user} />
-            </Protect>
+              <Landing />
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/AuthForm"
           element={
             <Protect>
@@ -57,8 +54,8 @@ function App() {
               <Draw />
             </Protect>
           }
-        />
-      </Routes> */}
+        /> */}
+      {/* </Routes> */}
     </div>
   );
 }

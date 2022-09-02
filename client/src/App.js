@@ -1,18 +1,22 @@
 import "./App.css";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Timeline from "./components/Timeline";
 import FriendsList from "./components/FriendsList";
-import Draw from "./pages/Draw";
+import Landing from "./pages/Landing";
+import Draw from "./pages/Draw/Draw";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import FriendProfile from "./pages/FriendProfile";
 import AuthForm from "./pages/AuthForm";
-import Landing from "./pages/Landing";
+
+// import Landing from "./pages/Landing";
 
 function App() {
   return (
     <div className="app">
+      <Header />
       <Draw />
+      {/* <Draw /> */}
 
       {/* <Routes>
         <Route

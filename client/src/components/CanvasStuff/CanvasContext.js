@@ -98,7 +98,8 @@ export const CanvasProvider = ({ children }) => {
     const canvas = canvasRef.current;
     const config = {
       headers: {
-        "content-type": "multipart/form-data"
+        "content-type": "multipart/form-data",
+        authorization: `Verify ${localStorage.getItem("token")}`
       }
     };
     const form = new FormData();
@@ -108,21 +109,7 @@ export const CanvasProvider = ({ children }) => {
         console.log(res);
       });
     });
-    // form.append(
-    //   "image",
-    //   canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
-    // );
-    // axios.post("/api/image", { text: "TESTEST" }).then(res => {
-    //   console.log(res);
-    // });
-
-    // const image = canvas
-    //   .toDataURL("image/png")
-    //   .replace("image/png", "image/octet-stream"); // here is the most important part because if you dont replace you will get a DOM 18 exception.
-
-    // window.location.href = image; // it will save locally
   };
-
   return (
     <CanvasContext.Provider
       value={{

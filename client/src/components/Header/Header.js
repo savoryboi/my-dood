@@ -12,10 +12,10 @@ function Header() {
       <h1 className="title">MyDood</h1>
       <Menu right className="bm-menu">
         <a id="home" className="bm-item" href="/">
-          Home
+          Draw
         </a>
-        <a id="about" className="bm-item" href="/about">
-          About
+        <a id="about" className="bm-item" href="/Profile">
+          Profile
         </a>
         <a id="contact" className="bm-item" href="/contact">
           Contact

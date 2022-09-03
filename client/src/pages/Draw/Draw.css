@@ -84,7 +84,7 @@ canvas {
 }
 
 #picker_div {
-  background: white;
+  background: var(--yellow);
   margin: 3px;
   height: 25px;
   width: 160px;

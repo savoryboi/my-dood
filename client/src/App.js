@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import Landing from "./pages/main/Landing";
 import Home from "./pages/main/Home";
 import Draw from "./pages/Draw/Draw";
+import Profile from "./pages/profiles/Profile";
+import Timeline from "./components/Timeline/Timeline";
 
 function App() {
   return (
@@ -12,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Draw />} />
         <Route path="/Profile" element={<Profile />} />
-        <Route path="/timeline" element={<Timeline />} />
+        <Route path="/Timeline" element={<Timeline />} />
       </Routes>
     </div>
   );

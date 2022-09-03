@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header/Header";
-import Timeline from "./components/Timeline";
+import Timeline from "./components/Timeline/Timeline";
 import FriendsList from "./components/FriendsList";
 import Landing from "./pages/main/Landing";
 import Draw from "./pages/Draw/Draw";
@@ -18,6 +18,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Draw />}/>
       <Route path="/Profile" element={<Profile />}/>
+      <Route path="/timeline" element={<Timeline />} />
     
       </Routes>
     </div>

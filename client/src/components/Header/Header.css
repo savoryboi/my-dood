@@ -7,12 +7,16 @@
 }
 
 header {
+  z-index: 1;
+  position: sticky;
+  top: 0;
   background-color: var(--dark-grey);
   margin: 0;
   padding: 10px 2%;
   display: flex;
   justify-content: center;
   color: var(--sage);
+  width: 100%;
 }
 
 .title {

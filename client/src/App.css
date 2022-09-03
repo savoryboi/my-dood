@@ -14,16 +14,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  height: fit-content;
+}
 
 body {
   margin: 0px;
-  overflow: hidden;
   background: var(--yellow);
-  width: 100%;
-  height: 100%;
-}
-
-.app {
   width: 100%;
   height: 100%;
 }

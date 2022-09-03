@@ -16,7 +16,7 @@ canvas {
 .drawButtons {
   display: flex;
   justify-content: center;
-  width: 360px;
+  width: 350px;
   border: 5px solid var(--dark-grey);
   border-top: 0;
   border-radius: 0 0 35px 35px;
@@ -25,8 +25,8 @@ canvas {
 }
 
 .drawButtons .colorButton {
-  height: 28px;
-  width: 50px;
+  height: 25px;
+  width: 47px;
   cursor: pointer;
   display: inline-block;
   cursor: pointer;
@@ -75,28 +75,47 @@ canvas {
 
 #revise button {
   background: var(--blue);
-  height: 28px;
-  width: 51px;
+  height: 25px;
+  width: 48px;
   margin: 3px;
   border-radius: 20px;
   border: 2px solid var(--sage);
   cursor: pointer;
 }
 
-#picker {
-  appearance: auto;
-  align-self: center;
-  margin: 5px 5px;
-  height: 30px;
-  width: 165px;
-  padding: 0px 3px;
-  border-radius: 0px;
+#picker_div {
+  background: var(--yellow);
+  margin: 3px;
+  height: 25px;
+  width: 160px;
+  padding: 0;
+  border-radius: 20px;
   border: 2px solid var(--light-grey);
   cursor: pointer;
 }
 
-#pen-range {
+#picker {
+  opacity: 0;
+  appearance: auto;
+  align-self: center;
+  height: 25px;
   width: 155px;
+  padding: 0;
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+
+#pen-range {
+  width: 145px;
   margin: 5px 10px;
   cursor: pointer;
+}
+
+@media only screen and (max-height: 700px) {
+  .drawButtons .colorButton,
+  #revise button,
+  #picker {
+    height: 20px;
+  }
 }

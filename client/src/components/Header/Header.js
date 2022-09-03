@@ -17,8 +17,8 @@ function Header() {
         <a id="about" className="bm-item" href="/Profile">
           Profile
         </a>
-        <a id="contact" className="bm-item" href="/contact">
-          Contact
+        <a id="timeline" className="bm-item" href="/Timeline">
+          Timeline
         </a>
         {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
       </Menu>

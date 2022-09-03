@@ -67,12 +67,18 @@ export const CanvasButtons = () => {
       </div>
       <div>
         <div id="revise">
-          <button onClick={undoLast}><i className="fa-solid fa-rotate-left"></i></button>
-          <button onClick={clearCanvas}><i className="fa-solid fa-trash-can"></i></button>
-          <button onClick={save}><i className="fa-solid fa-paper-plane"></i></button>
+          <button onClick={undoLast}>
+            <i className="fa-solid fa-rotate-left" />
+          </button>
+          <button onClick={clearCanvas}>
+            <i className="fa-solid fa-trash-can" />
+          </button>
+          <button onClick={save}>
+            <i className="fa-solid fa-paper-plane" />
+          </button>
         </div>
         <div>
-          <div>
+          <div id="picker_div">
             <input
               id="picker"
               type="color"

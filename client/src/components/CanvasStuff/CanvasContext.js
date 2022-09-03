@@ -11,13 +11,14 @@ export const CanvasProvider = ({ children }) => {
   const startFill = "white";
   let lineColor = "black";
   let lineWeight = 5;
+  const picker_div = document.getElementById("picker_div");
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
-    canvas.width = 360 * 2;
-    canvas.height = 575 * 2;
-    canvas.style.width = `360px`;
-    canvas.style.height = `575px `;
+    canvas.width = 350 * 2;
+    canvas.height = 466 * 2;
+    canvas.style.width = `350px`;
+    canvas.style.height = `466px `;
 
     const context = canvas.getContext("2d");
     context.scale(2, 2);
@@ -33,6 +34,7 @@ export const CanvasProvider = ({ children }) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     context.strokeStyle = color;
+    picker_div.style.backgroundColor = color;
   };
   const changeWeight = weight => {
     const canvas = canvasRef.current;

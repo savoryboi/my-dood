@@ -9,13 +9,16 @@
 header {
   background-color: var(--dark-grey);
   margin: 0;
-  padding: 10px 2%;
+  /* padding: 10px 2%; */
+  font-size: 15pt;
+  height: 60px;
   display: flex;
   justify-content: center;
   color: var(--sage);
 }
 
 .title {
+  margin-top: 5px;
   font-family: var(--title);
 }
 
@@ -55,7 +58,7 @@ header {
 
 .bm-menu-wrap {
   position: fixed;
-  top: 58px !important;
+  top: 60px !important;
   /* height: 200px !important; */
   width: 150px !important;
 }
@@ -90,4 +93,23 @@ header {
 /* Styling of overlay */
 .bm-overlay {
   background: none !important;
+}
+
+@media only screen and (max-height: 700px) {
+  header {
+    height: 30px;
+    font-size: 8pt;
+  }
+  .title {
+    margin-top: 2px;
+  }
+  .bm-burger-button {
+    width: 16px;
+    height: 16px;
+    right: 7px;
+    top: 7px;
+  }
+  .bm-menu-wrap {
+    top: 30px !important;
+  }
 }

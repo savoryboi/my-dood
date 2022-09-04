@@ -12,6 +12,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    profile: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+    }],
     friends: [{
         type: Schema.Types.ObjectId,
         ref: 'User'

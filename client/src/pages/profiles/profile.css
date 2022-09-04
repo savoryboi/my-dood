@@ -1,10 +1,36 @@
+.edit-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: var(--blue);
+	margin: 2% 25%;
+	min-height: 300px;
+}
+.edit-profile-text{
+	color: var(--light-grey);
+	font-size: 48px;
+}
+.edit-profile-text1{
+	color: var(--light-grey);
+	font-size: 32px;
+}
+.edit-forms{
+	padding: 2% ;
+}
+.bio-form{
+}
+
+
+
+
+
+
+
 .user-profile{
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
-
-
 .user-posts{
 	height:100;
 	display: flex;
@@ -16,7 +42,6 @@
 
 	background-color: var(--light-grey);
 }
-
 .profile-container{
 	display: flex;
 	flex-direction: column;
@@ -30,20 +55,17 @@
 	border-radius: 5%;
 	background-color: var(--blue);
 }
-
 .user-img{
 	margin-top: 5%;
 	border-radius: 5%;
 	border: 5px solid;
 	border-color: var(--light-grey);
 }
-
 .user-name{
 	font-size: 32px;
 	margin-left: 10%;
 	align-self: flex-start;
 }
-
 .profile-info{
 	display: flex;
 	flex-direction: row;
@@ -52,7 +74,6 @@
 	align-self: flex-start;
 	flex-wrap: wrap;
 }
-
 #user-bio{
 	padding-left: 2%;
 }

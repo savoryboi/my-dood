@@ -27,8 +27,10 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
         .send({ message: "You must sign in to create a post" });
 
     const post = await Post.create({
+
       post_pic: req.file.path.split("../client/public/images").pop().trim(),
       post_text: "wheeeeee"
+
     });
 
     user.posts.push(post._id);

@@ -5,7 +5,8 @@ import "./Draw.css";
 
 function Draw() {
   return (
-    <CanvasProvider>
+    <CanvasProvider id="draw">
+      <h2>Word</h2>
       <div className="canvascontainer">
         <Canvas />
         <CanvasButtons />

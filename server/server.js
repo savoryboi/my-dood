@@ -10,7 +10,7 @@ const api_routes = require("./routes/api_routes");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "../client/build")));
-app.use(express.static(path.join(__dirname, "./public")));
+app.use(express.static(path.join(__dirname, "./public/")));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

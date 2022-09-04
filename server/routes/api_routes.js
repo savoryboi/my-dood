@@ -38,4 +38,9 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
   }
 });
 
+api_router.get(("/public/images/:pic"), async (req, res) => {
+  console.log(req.params.pic)
+  const images = await Post.find({post_pic: "public/images/" + req.params.pic})
+})
+
 module.exports = api_router;

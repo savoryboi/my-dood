@@ -12,10 +12,10 @@ const resolvers = {
       return await Posts.findById(args.id);
     },
     async getAllUsers() {
-      return await Users.find();
+      return await User.find().populate('posts');
     },
     async getOneUser(_, args) {
-      return await Users.findById(args.id);
+      return await User.findById(args.id).populate('posts')
     }
   },
 

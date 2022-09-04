@@ -1,5 +1,8 @@
-const Users = require('../models/User');
+const User = require('../models/User');
 const Posts = require('../models/Post');
+const { signToken } = require('../auth');
+const { ApolloError } = require('apollo-server-express');
+
 
 
 const resolvers = {
@@ -19,12 +22,17 @@ const resolvers = {
     },
 
     Mutation: {
-        async addUser(_, { email, password }) {
-            return await Users.create({
-                email,
-                password
-            })
-        },
+        async addUser(_, { email, password }, context) {
+            try {
+              const user = await User.create({ email, password });
+      
+              const token = signToken(user);
+              return { user, token };
+      
+            } catch (err) {
+              throw new ApolloError(err);
+            }
+          },
         async addPost(_, { post_text, post_pic }) {
             return await Posts.create({
                 post_text,

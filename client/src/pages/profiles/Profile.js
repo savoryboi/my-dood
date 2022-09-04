@@ -1,6 +1,23 @@
 import './profile.css';
+import { useQuery, gql } from '@apollo/client';
+
+const USER_POSTS = gql`
+  query GetOneUser($getOneUserId: ID!) {
+  getOneUser(id: "6314d89bbf786a3a7fbb9a22") {
+    posts {
+      post_pic
+    }
+  }
+}
+`
 
 function Profile() {
+  const {loading, error, data} = useQuery(USER_POSTS)
+  console.log(data.getOneUser.posts)
+
+  if(loading) return 'Loading...';
+  if(error) return `Error! ${error.message}`;
+
   return (
     <div className='user-profile'>
     <div className= "profile-container">
@@ -13,7 +30,7 @@ function Profile() {
     </div>
 
       <div className= "user-posts"> thing
-       {/* this will have all the user's posts  */}
+        {}
       </div>
       <div className="friends-list">
 

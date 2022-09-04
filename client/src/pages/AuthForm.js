@@ -32,10 +32,12 @@ function AuthForm(props) {
 
     localStorage.setItem("token", token);
     props.setUser(user);
+
     if (formInput.type === "register") {
       navigate("/");
+    } else {
+      navigate("/Draw");
     }
-    navigate("/Draw");
   };
 
   const handleInputChange = e => {

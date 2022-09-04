@@ -8,14 +8,14 @@ const resolvers = {
     async getAllPosts() {
       return await Posts.find();
     },
-    async getOnePost(_, args) {
+    async getOnePost(_, { args }) {
       return await Posts.findById(args.id);
     },
     async getAllUsers() {
-      return await User.find().populate('posts');
+      return await User.find().populate("posts");
     },
     async getOneUser(_, args) {
-      return await User.findById(args.id).populate('posts')
+      return await User.findById(args.id).populate("posts");
     }
   },
 
@@ -30,10 +30,27 @@ const resolvers = {
         throw new ApolloError(err);
       }
     },
-    async addPost(_, { post_text, post_pic }) {
+
+    async loginUser(_, { email, password }, context) {
+      const user = await User.findOne({ email });
+
+      if (!user) throw new ApolloError("No user found with that email address");
+
+      if (!user.validatePass(password))
+        throw new ApolloError("Your password is incorrect");
+
+      try {
+        const token = signToken(user);
+
+        return { user, token };
+      } catch (err) {
+        throw new ApolloError(err);
+      }
+    },
+    async addPost(_, { postText, postPic }) {
       return await Posts.create({
-        post_text,
-        post_pic
+        postText,
+        postPic
       });
     }
   }

@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 
 const USER_POSTS = gql`
   query getOneUser {
-  getOneUser(id: "6314d89bbf786a3a7fbb9a22") {
+  getOneUser(id: "6315093390552124d0174057") {
     posts {
       post_pic
     }
@@ -29,10 +29,10 @@ function Profile() {
       </div>
 
       {data && (
-        <div className="user-posts"> thing
+        <div className="user-posts">
           {data.getOneUser.posts.map((post, index) => (
             <div key={index} className='post-card'>
-              <img src={'./' + post.post_pic}/>
+              <img src={post.post_pic}/>
             </div>
           )
           )}

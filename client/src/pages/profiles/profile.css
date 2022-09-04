@@ -56,3 +56,9 @@
 #user-bio{
 	padding-left: 2%;
 }
+
+.post-card img {
+	height: 466px;
+	width: 350px;
+	z-index: 1000;
+}

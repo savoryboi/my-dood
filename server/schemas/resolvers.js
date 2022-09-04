@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Posts = require("../models/Post");
+const Profile = require("../models/Profile")
 const { signToken } = require("../auth");
 const { ApolloError } = require("apollo-server-express");
 
@@ -52,7 +53,17 @@ const resolvers = {
         postText,
         postPic
       });
-    }
+    },
+    async edit(_, { userName, bio }, context) {
+      try {
+        const profile = await Profile.create({ userName, bio });
+
+        const token = signToken(profile);
+        return { profile, token };
+      } catch (err) {
+        throw new ApolloError(err);
+      }
+    },
   }
 };
 

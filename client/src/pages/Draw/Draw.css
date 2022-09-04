@@ -1,3 +1,13 @@
+#draw {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+h2 {
+  margin: auto;
+}
+
 .canvascontainer {
   display: flex;
   flex-direction: column;
@@ -85,12 +95,12 @@ canvas {
 
 #picker_div {
   background: var(--yellow);
-  margin: 3px;
+  margin: 4px 3px;
   height: 25px;
-  width: 160px;
+  width: 157px;
   padding: 0;
   border-radius: 20px;
-  border: 2px solid var(--light-grey);
+  border: 2px solid var(--sage);
   cursor: pointer;
 }
 
@@ -115,6 +125,7 @@ canvas {
 @media only screen and (max-height: 700px) {
   .drawButtons .colorButton,
   #revise button,
+  #picker_div,
   #picker {
     height: 20px;
   }

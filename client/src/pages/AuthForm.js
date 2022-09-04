@@ -1,21 +1,13 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
+import { ADD_USER, LOGIN_USER } from "../utils/mutations";
 
-const handleLogin = async e => {
-  e.preventDefault();
-};
-
-const handleRegistration = async e => {
-  e.preventDefault();
-};
-
-function Landing(props) {
+function AuthForm(props) {
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
-    type: "login"
+    type: "register"
   });
   const [addUser] = useMutation(ADD_USER, {
     variables: formInput
@@ -23,6 +15,26 @@ function Landing(props) {
   const [loginUser] = useMutation(LOGIN_USER, {
     variables: formInput
   });
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    let user, token;
+    let mutation = formInput.type === "register" ? addUser : loginUser;
+    let type = formInput.type === "register" ? "addUser" : "loginUser";
+
+    const { data } = await mutation();
+
+    user = data[type].user;
+    token = data[type].token;
+
+    localStorage.setItem("token", token);
+    props.setUser(user);
+
+    navigate("/Timeline");
+  };
 
   const handleInputChange = e => {
     setFormInput({
@@ -35,7 +47,7 @@ function Landing(props) {
     <main className="landing">
       <h1>Welcome to MyDood, my dude!</h1>
       <div className="container">
-        <form onSubmit={handleLogin} className="login-form">
+        {/* <form onSubmit={handleLogin} className="login-form">
           <input
             name="email"
             value={formInput.email}
@@ -51,9 +63,9 @@ function Landing(props) {
             placeholder="enter your password"
           />
           <button>Login</button>
-        </form>
+        </form> */}
 
-        <form onSubmit={handleRegistration} className="register-form">
+        <form onSubmit={handleSubmit} className="register-form">
           <input
             name="email"
             value={formInput.email}
@@ -75,4 +87,4 @@ function Landing(props) {
   );
 }
 
-export default Landing;
+export default AuthForm;

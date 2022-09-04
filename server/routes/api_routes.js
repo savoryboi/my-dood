@@ -14,10 +14,11 @@ const Post = require("../models/Post");
 const jwt = require("jsonwebtoken");
 
 api_router.post("/api/image", upload.single("image"), async (req, res) => {
-  const token = req.headers.authorization;
-
+  var token = req.headers.authorization;
+  token = token.split(" ").pop().trim();
   if (token) {
     const { data, exp } = jwt.decode(token);
+
     const user = await User.findById(data._id);
 
     if (exp < Date.now() / 1000 || !user)
@@ -25,7 +26,10 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
         .status(401)
         .send({ message: "You must sign in to create a post" });
 
-    const post = await Post.create({ pic_url: req.file.path });
+    const post = await Post.create({
+      post_pic: req.file.path,
+      post_text: "wheeeeee"
+    });
 
     user.posts.push(post._id);
     user.save();

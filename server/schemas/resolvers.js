@@ -1,45 +1,42 @@
-const User = require('../models/User');
-const Posts = require('../models/Post');
-const { signToken } = require('../auth');
-const { ApolloError } = require('apollo-server-express');
-
-
+const User = require("../models/User");
+const Posts = require("../models/Post");
+const { signToken } = require("../auth");
+const { ApolloError } = require("apollo-server-express");
 
 const resolvers = {
-    Query: {
-        async getAllPosts() {
-            return await Posts.find();
-        },
-        async getOnePost(_, args) {
-            return await Posts.findById(args.id);
-        },
-        async getAllUsers() {
-            return await Users.find();
-        },
-        async getOneUser(_, args) {
-            return await Users.findById(args.id)
-        }
+  Query: {
+    async getAllPosts() {
+      return await Posts.find();
     },
-
-    Mutation: {
-        async addUser(_, { email, password }, context) {
-            try {
-              const user = await User.create({ email, password });
-      
-              const token = signToken(user);
-              return { user, token };
-      
-            } catch (err) {
-              throw new ApolloError(err);
-            }
-          },
-        async addPost(_, { post_text, post_pic }) {
-            return await Posts.create({
-                post_text,
-                post_pic
-            })
-        }
+    async getOnePost(_, args) {
+      return await Posts.findById(args.id);
+    },
+    async getAllUsers() {
+      return await Users.find();
+    },
+    async getOneUser(_, args) {
+      return await Users.findById(args.id);
     }
+  },
+
+  Mutation: {
+    async addUser(_, { email, password }, context) {
+      try {
+        const user = await User.create({ email, password });
+
+        const token = signToken(user);
+        return { user, token };
+      } catch (err) {
+        throw new ApolloError(err);
+      }
+    },
+    async addPost(_, { post_text, post_pic }) {
+      return await Posts.create({
+        post_text,
+        post_pic
+      });
+    }
+  }
 };
 
 module.exports = resolvers;

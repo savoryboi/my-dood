@@ -7,7 +7,7 @@ function AuthForm(props) {
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
-    type: "register"
+    type: "login"
   });
   const [addUser] = useMutation(ADD_USER, {
     variables: formInput
@@ -33,7 +33,7 @@ function AuthForm(props) {
     localStorage.setItem("token", token);
     props.setUser(user);
 
-    navigate("/Timeline");
+    navigate("/");
   };
 
   const handleInputChange = e => {
@@ -44,46 +44,50 @@ function AuthForm(props) {
   };
 
   return (
-    <main className="landing">
-      <h1>Welcome to MyDood, my dude!</h1>
-      <div className="container">
-        {/* <form onSubmit={handleLogin} className="login-form">
+    <form onSubmit={handleSubmit}>
+      <h1>
+        {formInput.type[0].toUpperCase() + formInput.type.slice(1)}
+      </h1>
+      <input
+        name="email"
+        value={formInput.email}
+        onChange={handleInputChange}
+        type="email"
+        placeholder="Enter your email address"
+      />
+      <input
+        name="password"
+        value={formInput.password}
+        onChange={handleInputChange}
+        type="password"
+        placeholder="Enter your password"
+      />
+      <div className="type-wrap">
+        <label htmlFor="login">
+          Login
           <input
-            name="email"
-            value={formInput.email}
+            checked={formInput.type === "login"}
             onChange={handleInputChange}
-            type="email"
-            placeholder="enter your email"
+            name="type"
+            id="login"
+            type="radio"
+            value="login"
           />
+        </label>
+        <label htmlFor="register">
+          Register
           <input
-            name="password"
-            value={formInput.password}
+            checked={formInput.type === "register"}
             onChange={handleInputChange}
-            type="password"
-            placeholder="enter your password"
+            name="type"
+            id="register"
+            type="radio"
+            value="register"
           />
-          <button>Login</button>
-        </form> */}
-
-        <form onSubmit={handleSubmit} className="register-form">
-          <input
-            name="email"
-            value={formInput.email}
-            onChange={handleInputChange}
-            type="email"
-            placeholder="enter your email"
-          />
-          <input
-            name="password"
-            value={formInput.password}
-            onChange={handleInputChange}
-            type="password"
-            placeholder="enter your password"
-          />
-          <button>Register</button>
-        </form>
+        </label>
       </div>
-    </main>
+      <button>Submit</button>
+    </form>
   );
 }
 

@@ -8,14 +8,14 @@ const resolvers = {
     async getAllPosts() {
       return await Posts.find();
     },
-    async getOnePost(_, args) {
+    async getOnePost(_, { args }) {
       return await Posts.findById(args.id);
     },
     async getAllUsers() {
-      return await Users.find();
+      return await User.find();
     },
     async getOneUser(_, args) {
-      return await Users.findById(args.id);
+      return await User.findById(args.id);
     }
   },
 
@@ -30,10 +30,10 @@ const resolvers = {
         throw new ApolloError(err);
       }
     },
-    async addPost(_, { post_text, post_pic }) {
+    async addPost(_, { postText, postPic }) {
       return await Posts.create({
-        post_text,
-        post_pic
+        postText,
+        postPic
       });
     }
   }

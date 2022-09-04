@@ -14,11 +14,11 @@ const userSchema = new Schema({
     },
     friends: [{
         type: Schema.Types.ObjectId,
-        ref: 'Users'
+        ref: 'User'
     }],
     posts: [{
         type: Schema.Types.ObjectId,
-        ref: 'Posts'
+        ref: 'Post'
     }]
 
 },

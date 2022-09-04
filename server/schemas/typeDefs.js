@@ -23,9 +23,9 @@ const typeDefs = gql`
 
   type Query {
     getAllPosts: [Post]
-    getOnePost: Post
+    getOnePost(id: ID!): Post
     getAllUsers: [User]
-    getOneUser: User
+    getOneUser(id: ID!): User
   }
 
   type Mutation {

@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { isAuthenticated } from "./utils/auth";
 import Landing from "./pages/Landing";
 import Protect from "./components/Protect";
+import EditProfile from "./pages/profiles/EditProfile";
 
 function App() {
   const [logo] = useState("React Overview");
@@ -29,6 +30,14 @@ function App() {
           element={
             <Protect>
               <Landing user={user} />
+            </Protect>
+          }
+        />
+        <Route
+          path="/EditProfile"
+          element={
+            <Protect>
+              <EditProfile user={user} />
             </Protect>
           }
         />

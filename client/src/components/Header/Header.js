@@ -11,7 +11,7 @@ function Header() {
     <header>
       <h1 className="title">MyDood</h1>
       <Menu right className="bm-menu">
-        <a id="home" className="bm-item" href="/">
+        <a id="home" className="bm-item" href="/Draw">
           Draw
         </a>
         <a id="about" className="bm-item" href="/Profile">

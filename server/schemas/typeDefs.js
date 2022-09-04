@@ -11,6 +11,7 @@ const typeDefs = gql`
 
   type Post {
     _id: ID!
+    post_pic: String!
     post_text: String!
     # user_id??? need to know what properties on here
   }
@@ -29,7 +30,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(email: String!, password: String!): Auth!
-    addPost(post_pic: String!, post_text: String!): Post
+    addPost(post_pic: String!, post_text: String!): Post!
   }
 `;
 

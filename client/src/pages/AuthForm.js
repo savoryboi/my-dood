@@ -33,7 +33,7 @@ function AuthForm(props) {
     localStorage.setItem("token", token);
     props.setUser(user);
 
-    navigate("/Timeline");
+    navigate("/Draw");
   };
 
   const handleInputChange = e => {

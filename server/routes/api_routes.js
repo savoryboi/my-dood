@@ -28,7 +28,7 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
 
     const post = await Post.create({
       postPic: req.file.path
-        .split("..\\client\\src\\components\\images\\")
+        .split("..(\\|/)client(\\|/)src(\\|/)components(\\|/)images(\\|/)")
         .pop()
         .trim(),
       postText: user.email

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useMutation, useLazyQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { ADD_USER, LOGIN_USER } from "../utils/mutations";
 // import { GET_USER } from "../utils/queries";
@@ -8,6 +8,8 @@ function AuthForm(props) {
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
+    username: "",
+    bio: "",
     type: "login"
   });
   const [addUser] = useMutation(ADD_USER, {
@@ -45,11 +47,9 @@ function AuthForm(props) {
 
     // props.setUser(user);
 
-    if (formInput.type === "register") {
-      navigate("/EditProfile");
-    } else {
-      navigate("/Draw");
-    }
+
+    navigate("/Draw");
+
   };
 
   const handleInputChange = e => {
@@ -78,6 +78,25 @@ function AuthForm(props) {
         type="password"
         placeholder="Enter your password"
       />
+
+
+      <div>
+        <input
+          name="userName"
+          value={formInput.userName}
+          onChange={handleInputChange}
+          type="userName"
+          placeholder="Enter your username"
+        />
+        <input
+          name="bio"
+          value={formInput.bio}
+          onChange={handleInputChange}
+          type="bio"
+          placeholder="Enter your bio"
+        />
+      </div>
+
       <div className="type-wrap">
         <label htmlFor="login">
           Login

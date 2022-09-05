@@ -1,4 +1,4 @@
-const { Schema , model } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
@@ -12,10 +12,15 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    profile: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Profile'
-    }],
+  
+    userName: {
+        type: String,
+        required: false
+    },
+    bio: {
+        type: String,
+        max: 150
+    },
     friends: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -26,11 +31,11 @@ const userSchema = new Schema({
     }]
 
 },
-{
-    toJSON: {
-        virtuals: true
-    }
-});
+    {
+        toJSON: {
+            virtuals: true
+        }
+    });
 userSchema.pre('save', async function () {
     const hashed_pass = await bcrypt.hash(this.password, 10);
     this.password = hashed_pass;

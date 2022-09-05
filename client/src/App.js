@@ -53,7 +53,7 @@ function App() {
           path="/Draw"
           element={
             <Protect>
-              <Draw />
+              <Draw user={user} />
             </Protect>
           }
         />
@@ -61,7 +61,7 @@ function App() {
           path="/Profile"
           element={
             <Protect>
-              <Profile />
+              <Profile user={user} />
             </Protect>
           }
         />
@@ -69,7 +69,7 @@ function App() {
           path="/Timeline"
           element={
             <Protect>
-              <Timeline />
+              <Timeline user={user} />
             </Protect>
           }
         />

@@ -34,7 +34,7 @@ function AuthForm(props) {
     props.setUser(user);
 
     if (formInput.type === "register") {
-      navigate("/");
+      navigate("/Draw");
     } else {
       navigate("/Draw");
     }

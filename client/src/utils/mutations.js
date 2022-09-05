@@ -22,17 +22,14 @@ export const LOGIN_USER = gql`
   }
 `;
 
-
-// export const EDIT_PROFILE = gql`
-//   mutation edit($userName: String!, $bio: String!) {
-//     edit(userName: $userName, bio: $bio) {
-//       user {
-//         profile {
-//           userName
-//           bio
-//         }
-//       }
-//       token
-//     }
-//   }
-// `;
+export const EDIT_PROFILE = gql`
+  mutation edit($_id: ID!, $userName: String!, $bio: String!) {
+    user(_id: $id) {
+      profile(userName: $userName, bio: $bio) {
+        userName
+        bio
+      }
+    }
+    token
+  }
+`;

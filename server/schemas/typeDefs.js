@@ -8,7 +8,6 @@ const typeDefs = gql`
     profile: [Profile]
     friends: [User]
     posts: [Post]
-
   }
 
   type Profile {
@@ -42,7 +41,6 @@ const typeDefs = gql`
     loginUser(email: String!, password: String!): Auth!
     addUser(email: String!, password: String!): Auth!
     addPost(postPic: String!, postText: String!): Post!
-    # edit($userName: String!, $bio: String!): Profile! 
   }
 `;
 

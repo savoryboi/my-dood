@@ -55,7 +55,17 @@ const resolvers = {
         postText,
         postPic
       });
-    }
+    },
+    async edit(_, { userName, bio }, context) {
+      try {
+        const profile = await Profile.create({ userName, bio });
+
+        const token = signToken(profile);
+        return { profile, token };
+      } catch (err) {
+        throw new ApolloError(err);
+      }
+    },
   }
 };
 

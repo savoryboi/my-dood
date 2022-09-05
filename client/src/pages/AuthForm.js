@@ -46,7 +46,7 @@ function AuthForm(props) {
     // props.setUser(user);
 
     if (formInput.type === "register") {
-      navigate("/Draw");
+      navigate("/EditProfile");
     } else {
       navigate("/Draw");
     }

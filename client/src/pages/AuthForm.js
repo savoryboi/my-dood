@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutation, useLazyQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { ADD_USER, LOGIN_USER } from "../utils/mutations";
-import { GET_USER } from "../utils/queries";
+// import { GET_USER } from "../utils/queries";
 
 function AuthForm(props) {
   const [formInput, setFormInput] = useState({
@@ -43,7 +43,7 @@ function AuthForm(props) {
 
     // console.log(userObj);
 
-    props.setUser(user);
+    // props.setUser(user);
 
     if (formInput.type === "register") {
       navigate("/Draw");

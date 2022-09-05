@@ -5,23 +5,11 @@ import { useQuery, gql } from "@apollo/client";
 import { USER_POSTS } from "../../utils/queries";
 
 function Profile({ user }) {
-  // const USER_POSTS = gql`
-  //   query getOneUser ($id: ID!{
-  //     getOneUser(id: $id) {
-  //       posts {
-  //         postPic
-  //       }
-  //     }
-  //   }
-  // `;
-  // if
   console.log(user);
   const { error, loading, data } = useQuery(USER_POSTS, {
     variables: user
   });
-  // const [getOneUser] = useQuery(USER_POSTS, {
-  //   variables: userId
-  // });
+  console.log(data);
 
   function importAll(r) {
     let images = {};

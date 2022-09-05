@@ -78,6 +78,8 @@ function AuthForm(props) {
         type="password"
         placeholder="Enter your password"
       />
+
+
       <div>
         <input
           name="userName"
@@ -93,8 +95,8 @@ function AuthForm(props) {
           type="bio"
           placeholder="Enter your bio"
         />
-
       </div>
+
       <div className="type-wrap">
         <label htmlFor="login">
           Login

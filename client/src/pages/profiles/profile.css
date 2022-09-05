@@ -3,6 +3,15 @@
   flex-direction: row;
   justify-content: center;
 }
+.edit-forms{
+	padding: 2% ;
+}
+.bio-form{
+}
+
+
+
+
 
 .user-posts {
   height: 100;

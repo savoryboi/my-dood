@@ -5,7 +5,16 @@ const typeDefs = gql`
     _id: ID!
     email: String!
     password: String!
+    profile: [Profile]
     friends: [User]
+    posts: [Post]
+
+  }
+
+  type Profile {
+    _id: ID!
+    userName: String!
+    bio: String!
     posts: [Post]
   }
 
@@ -33,6 +42,7 @@ const typeDefs = gql`
     loginUser(email: String!, password: String!): Auth!
     addUser(email: String!, password: String!): Auth!
     addPost(postPic: String!, postText: String!): Post!
+    edit($userName: String!, $bio: String!): Profile! 
   }
 `;
 

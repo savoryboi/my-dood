@@ -42,7 +42,7 @@ const typeDefs = gql`
     loginUser(email: String!, password: String!): Auth!
     addUser(email: String!, password: String!): Auth!
     addPost(postPic: String!, postText: String!): Post!
-    edit($userName: String!, $bio: String!): Profile! 
+    # edit($userName: String!, $bio: String!): Profile! 
   }
 `;
 

@@ -56,16 +56,16 @@ const resolvers = {
         postPic
       });
     },
-    async edit(_, { userName, bio }, context) {
-      try {
-        const profile = await Profile.create({ userName, bio });
+    // async edit(_, { userName, bio }, context) {
+    //   try {
+    //     const profile = await Profile.create({ userName, bio });
 
-        const token = signToken(profile);
-        return { profile, token };
-      } catch (err) {
-        throw new ApolloError(err);
-      }
-    },
+    //     const token = signToken(profile);
+    //     return { profile, token };
+    //   } catch (err) {
+    //     throw new ApolloError(err);
+    //   }
+    // },
   }
 };
 

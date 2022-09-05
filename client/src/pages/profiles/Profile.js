@@ -2,21 +2,26 @@ import "./profile.css";
 // import { useState } from "react";
 
 import { useQuery, gql } from "@apollo/client";
-// import { USER_POSTS } from "../../utils/queries";
+import { USER_POSTS } from "../../utils/queries";
 
 function Profile({ user }) {
-  setTimeout(function() {
-    console.log(user);
-  }, 15000);
-  const USER_POSTS = gql`
-    query getOneUser {
-      getOneUser(id: "631560e908af07745b82aac8") {
-        posts {
-          postPic
-        }
-      }
-    }
-  `;
+  // const USER_POSTS = gql`
+  //   query getOneUser ($id: ID!{
+  //     getOneUser(id: $id) {
+  //       posts {
+  //         postPic
+  //       }
+  //     }
+  //   }
+  // `;
+  // if
+  console.log(user);
+  const { error, loading, data } = useQuery(USER_POSTS, {
+    variables: user
+  });
+  // const [getOneUser] = useQuery(USER_POSTS, {
+  //   variables: userId
+  // });
 
   function importAll(r) {
     let images = {};
@@ -29,8 +34,6 @@ function Profile({ user }) {
   const images = importAll(
     require.context("../../components/images", false, /\.(png|jpe?g|svg)$/)
   );
-
-  const { error, loading, data } = useQuery(USER_POSTS);
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;

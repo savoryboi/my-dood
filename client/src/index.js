@@ -4,23 +4,29 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter as Router } from "react-router-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, ApolloLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { onError } from '@apollo/client/link/error';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+  ApolloLink
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { onError } from "@apollo/client/link/error";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3333/graphql',
+  uri: "http://localhost:3333/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   return {
     headers: {
       ...headers,
-      authorization: token ? `Verify ${token}` : ''
+      authorization: token ? `Verify ${token}` : ""
     }
-  }
+  };
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -47,7 +53,7 @@ root.render(
       </Router>
     </ApolloProvider>
   </React.StrictMode>
-); 
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

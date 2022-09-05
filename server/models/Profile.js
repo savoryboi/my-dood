@@ -9,10 +9,9 @@ const profileSchema = new Schema({
   bio: {
     type: String,
     max: 150
-  },
-  posts: {
-    ref: User.posts
   }
 });
 
-module.exports = profileSchema;
+const profile = model("Profile", profileSchema);
+
+module.exports = profile;

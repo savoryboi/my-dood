@@ -1,4 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const CanvasContext = React.createContext();
 
@@ -12,6 +13,7 @@ export const CanvasProvider = ({ children }) => {
   let lineColor = "black";
   let lineWeight = 5;
   const picker_div = document.getElementById("picker_div");
+  const navigate = useNavigate();
 
   const prepareCanvas = () => {
     const canvas = canvasRef.current;
@@ -111,6 +113,8 @@ export const CanvasProvider = ({ children }) => {
         console.log(res);
       });
     });
+
+    navigate("/Timeline");
   };
   return (
     <CanvasContext.Provider

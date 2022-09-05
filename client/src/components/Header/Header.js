@@ -11,15 +11,15 @@ function Header() {
     <header>
       <h1 className="title">MyDood</h1>
       <Menu right className="bm-menu">
-        <a id="home" className="bm-item" href="/Draw">
+        <NavLink to="/Draw" id="home" className="bm-item">
           Draw
-        </a>
-        <a id="about" className="bm-item" href="/Profile">
+        </NavLink>
+        <NavLink to="/Profile" id="home" className="bm-item">
           Profile
-        </a>
-        <a id="timeline" className="bm-item" href="/Timeline">
+        </NavLink>
+        <NavLink to="/Timeline" id="home" className="bm-item">
           Timeline
-        </a>
+        </NavLink>
         {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
       </Menu>
     </header>

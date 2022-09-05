@@ -1,22 +1,24 @@
 const User = require("../models/User");
-const Posts = require("../models/Post");
-const Profile = require("../models/Profile")
+const Post = require("../models/Post");
 const { signToken } = require("../auth");
 const { ApolloError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
     async getAllPosts() {
-      return await Posts.find();
+      return await Post.find();
     },
     async getOnePost(_, { args }) {
-      return await Posts.findById(args.id);
+      return await Post.findById(args.id);
     },
     async getAllUsers() {
       return await User.find().populate("posts");
     },
     async getOneUser(_, args) {
       return await User.findById(args.id).populate("posts");
+    },
+    async getUserByEmail(_, args) {
+      return await User.findBy(args.email).populate("posts");
     }
   },
 
@@ -49,7 +51,7 @@ const resolvers = {
       }
     },
     async addPost(_, { postText, postPic }) {
-      return await Posts.create({
+      return await Post.create({
         postText,
         postPic
       });

@@ -1,18 +1,7 @@
-.edit-container{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: var(--blue);
-	margin: 2% 25%;
-	min-height: 300px;
-}
-.edit-profile-text{
-	color: var(--light-grey);
-	font-size: 48px;
-}
-.edit-profile-text1{
-	color: var(--light-grey);
-	font-size: 32px;
+.user-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .edit-forms{
 	padding: 2% ;
@@ -24,62 +13,65 @@
 
 
 
+.user-posts {
+  height: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 1000px;
+  margin: 0% 25%;
 
+  background-color: var(--light-grey);
+}
 
-.user-profile{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 100px;
+  margin-left: 2%;
+  border-radius: 5%;
+  background-color: var(--blue);
 }
-.user-posts{
-	height:100;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	min-height: 1000px;
-	margin: 0% 25%;
 
-	background-color: var(--light-grey);
+.user-img {
+  margin-top: 5%;
+  border-radius: 5%;
+  border: 5px solid;
+  border-color: var(--light-grey);
 }
-.profile-container{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 20%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin-top: 100px;
-	margin-left: 2%;
-	border-radius: 5%;
-	background-color: var(--blue);
+
+.user-name {
+  font-size: 32px;
+  margin-left: 10%;
+  align-self: flex-start;
 }
-.user-img{
-	margin-top: 5%;
-	border-radius: 5%;
-	border: 5px solid;
-	border-color: var(--light-grey);
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  margin-left: 10%;
+  align-self: flex-start;
+  flex-wrap: wrap;
 }
-.user-name{
-	font-size: 32px;
-	margin-left: 10%;
-	align-self: flex-start;
+
+#user-bio {
+  padding-left: 2%;
 }
-.profile-info{
-	display: flex;
-	flex-direction: row;
-	font-size: 24px;
-	margin-left: 10%;
-	align-self: flex-start;
-	flex-wrap: wrap;
-}
-#user-bio{
-	padding-left: 2%;
+
+.post-card {
+  background: white;
+  border: 20px;
 }
 
 .post-card img {
-	height: 466px;
-	width: 350px;
-	z-index: 1000;
+  height: 466px;
+  width: 350px;
+  z-index: 1000;
 }

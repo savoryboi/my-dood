@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useLazyQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { ADD_USER, LOGIN_USER } from "../utils/mutations";
+import { GET_USER } from "../utils/queries";
 
 function AuthForm(props) {
   const [formInput, setFormInput] = useState({
@@ -29,12 +30,23 @@ function AuthForm(props) {
 
     user = data[type].user;
     token = data[type].token;
-
     localStorage.setItem("token", token);
+
+    // const [error, loading, getUser] = useLazyQuery(GET_USER, {
+    //   variables: user
+    // });
+
+    // let query = getUser;
+    // const { userObj } = await query();
+    // if (loading) return "Loading...";
+    // if (error) return `Error! ${error.message}`;
+
+    // console.log(userObj);
+
     props.setUser(user);
 
     if (formInput.type === "register") {
-      navigate("/EditProfile");
+      navigate("/Draw");
     } else {
       navigate("/Draw");
     }

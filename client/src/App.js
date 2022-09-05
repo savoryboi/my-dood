@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import Protect from "./components/Protect";
 import Landing from "./pages/Landing";
 import AuthForm from "./pages/AuthForm";
-import EditProfile from "./pages/profiles/EditProfile";
+// import EditProfile from "./pages/profiles/EditProfile";
 import Draw from "./pages/Draw/Draw";
 import Profile from "./pages/profiles/Profile";
 import Timeline from "./components/Timeline/Timeline";
@@ -27,10 +27,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing user={user} />} />
           <Route path="/auth-form" element={<AuthForm />} />
-          <Route
+          {/* <Route
             path="/EditProfile"
             element={<EditProfile setUser={setUser} />}
-          />
+          /> */}
           <Route path="/Draw" element={<Draw setUser={setUser} />} />
           <Route path="/Profile" element={<Profile user={user} />} />
           <Route path="/Timeline" element={<Timeline user={user} />} />

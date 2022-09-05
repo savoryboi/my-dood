@@ -3,7 +3,7 @@ function Landing(props) {
   return (
     <div>
       <h1>
-        Welcome {props.user ? props.user._id : "Guest"}!
+        Welcome {props.user ? props.user.userName : "Guest"}!
       </h1>
     </div>
   );

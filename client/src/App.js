@@ -1,19 +1,18 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { isAuthenticated } from "./utils/auth";
 import Header from "./components/Header/Header";
+import Protect from "./components/Protect";
+import Landing from "./pages/Landing";
 import AuthForm from "./pages/AuthForm";
-import Home from "./pages/main/Home";
+import EditProfile from "./pages/profiles/EditProfile";
 import Draw from "./pages/Draw/Draw";
 import Profile from "./pages/profiles/Profile";
 import Timeline from "./components/Timeline/Timeline";
-import { useState, useEffect } from "react";
-import { isAuthenticated } from "./utils/auth";
-import Landing from "./pages/Landing";
-import Protect from "./components/Protect";
-import EditProfile from "./pages/profiles/EditProfile";
+import Home from "./pages/main/Home";
 
 function App() {
-  const [logo] = useState("React Overview");
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -23,57 +22,17 @@ function App() {
   }, []);
   return (
     <div className="app">
-      <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Protect>
-              <Landing user={user} />
-            </Protect>
-          }
-        />
-        <Route
-          path="/EditProfile"
-          element={
-            <Protect>
-              <EditProfile user={user} />
-            </Protect>
-          }
-        />
-        <Route
-          path="/auth-form"
-          element={
-            <Protect>
-              <AuthForm setUser={setUser} />
-            </Protect>
-          }
-        />
-        <Route
-          path="/Draw"
-          element={
-            <Protect>
-              <Draw user={user} />
-            </Protect>
-          }
-        />
-        <Route
-          path="/Profile"
-          element={
-            <Protect>
-              <Profile user={user} />
-            </Protect>
-          }
-        />
-        <Route
-          path="/Timeline"
-          element={
-            <Protect>
-              <Timeline user={user} />
-            </Protect>
-          }
-        />
-      </Routes>
+      <Protect>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Landing user={user} />} />
+          <Route path="/auth-form" element={<AuthForm setUser={setUser} />} />
+          <Route path="/EditProfile" element={<EditProfile user={user} />} />
+          <Route path="/Draw" element={<Draw user={user} />} />
+          <Route path="/Profile" element={<Profile user={user} />} />
+          <Route path="/Timeline" element={<Timeline user={user} />} />
+        </Routes>
+      </Protect>
     </div>
   );
 }

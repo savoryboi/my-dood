@@ -15,6 +15,9 @@ function Protect(props) {
 
     if (isAuthenticated() && location.pathname.match(/\/|auth-form/gi));
     // navigate("/Draw");
+    const user_data = isAuthenticated();
+
+    if (user_data) props.setUser(user_data);
   }, []);
 
   return (

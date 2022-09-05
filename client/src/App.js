@@ -15,20 +15,23 @@ import Home from "./pages/main/Home";
 function App() {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const user_data = isAuthenticated();
+  // useEffect(() => {
+  //   const user_data = isAuthenticated();
 
-    if (user_data) setUser(user_data);
-  }, []);
+  //   if (user_data) setUser(user_data);
+  // }, []);
   return (
     <div className="app">
-      <Protect>
+      <Protect setUser={setUser}>
         <Header />
         <Routes>
           <Route path="/" element={<Landing user={user} />} />
-          <Route path="/auth-form" element={<AuthForm setUser={setUser} />} />
-          <Route path="/EditProfile" element={<EditProfile user={user} />} />
-          <Route path="/Draw" element={<Draw user={user} />} />
+          <Route path="/auth-form" element={<AuthForm />} />
+          <Route
+            path="/EditProfile"
+            element={<EditProfile setUser={setUser} />}
+          />
+          <Route path="/Draw" element={<Draw setUser={setUser} />} />
           <Route path="/Profile" element={<Profile user={user} />} />
           <Route path="/Timeline" element={<Timeline user={user} />} />
         </Routes>

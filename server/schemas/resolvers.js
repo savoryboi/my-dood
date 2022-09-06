@@ -25,7 +25,10 @@ const resolvers = {
     },
     async getFriends(_, args) {
       return await User.findById(args.id).populate("friends");
-    }
+    },
+    // async getFriendsPosts(_, {friendId}, context) {
+
+    // }
   },
 
   Mutation: {

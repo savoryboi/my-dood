@@ -32,3 +32,7 @@ export const GET_NAMEID = gql`
     }
   }
 `;
+
+// export const GET_FRIEND_POSTS = gql`
+//   query 
+// `

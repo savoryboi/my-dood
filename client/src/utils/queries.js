@@ -6,9 +6,14 @@ export const GET_ONE_USER = gql`
       friends {
         _id
         userName
+        posts {
+          postPic
+          postText
+        }
       }
       posts {
         postPic
+        postText
       }
     }
   }

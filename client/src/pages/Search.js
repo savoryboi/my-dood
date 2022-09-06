@@ -39,10 +39,9 @@ function Search({ user }) {
                 <h3>
                   {searchedUsers.userName}
                 </h3>
-                <button id="followBtn"
-                  onClick={() => {
-                    const followBtn = document.getElementById("followBtn")
-                    followBtn.innerText = 'Added!'
+                <button className="followBtn"
+                  onClick={(e) => {
+                    e.target.innerText = 'Added!'
                     addToFriends({
                       variables: { friendId: searchedUsers._id }
                     })}

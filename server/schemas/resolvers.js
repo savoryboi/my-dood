@@ -16,7 +16,12 @@ const resolvers = {
       return await User.find().populate("posts");
     },
     async getOneUser(_, args) {
-      const user = await User.findById(args.id).populate(["posts", "friends"]);
+      const user = await User.findById(args.id)
+        .populate(["posts", "friends"])
+        .populate({
+          path: "friends",
+          populate: "posts",
+        });
       console.log(user);
       return user;
     },

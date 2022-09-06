@@ -8,7 +8,7 @@ import AuthForm from "./pages/AuthForm/AuthForm";
 import Draw from "./pages/Draw/Draw";
 import Profile from "./pages/profiles/Profile";
 import Timeline from "./components/Timeline/Timeline";
-import Search from "./pages/Search";
+import Search from "./pages/Search/Search";
 import Word from "./components/Word";
 import { Routes, Route } from "react-router-dom";
 

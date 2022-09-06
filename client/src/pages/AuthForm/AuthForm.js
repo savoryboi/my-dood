@@ -134,27 +134,6 @@ function AuthForm(props) {
         <div />
       )}
 
-            <input
-              name="userName"
-              value={formInput.userName}
-              onChange={handleInputChange}
-              type="userName"
-              placeholder="Enter your username"
-            />
-            <h3>Bio</h3>
-
-            <input
-              name="bio"
-              value={formInput.bio}
-              onChange={handleInputChange}
-              type="bio"
-              placeholder="Enter your bio"
-            />
-            <input type="file" onChange={onImageChange} />
-            <img src={img} height="150px" width="150px" alt="" />
-          </div>
-        : <div />}
-
       <div className="type-wrap">
         {register
           ? <label htmlFor="login">

@@ -28,7 +28,7 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
 
     const post = await Post.create({
       postPic: `images/${req.file.filename}`,
-      postText: user.email
+      postText: req.headers.title
     });
 
     user.posts.push(post._id);

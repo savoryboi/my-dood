@@ -23,10 +23,18 @@ function Profile({ user }) {
         <div className="user-name">
           {user.userName}
         </div>
-        <div className="profile-info">
-          <p id="user-bio">
-            {user.bio}
-          </p>
+        <p id="user-bio">
+          {user.bio}
+        </p>
+        <div className="friends-list">
+          {data &&
+            <ul> <span>My friends</span>
+              {data.getOneUser.friends.map((friend, index) =>
+                <li key={friend._id}>
+                  {friend.userName}
+                </li>
+              )}
+            </ul>}
         </div>
       </div>
 
@@ -40,16 +48,6 @@ function Profile({ user }) {
           )}
         </div>}
 
-      <div className="friends-list">
-        {data &&
-          <ul>
-            {data.getOneUser.friends.map((friend, index) =>
-              <li key={friend._id}>
-                {friend.userName}
-              </li>
-            )}
-          </ul>}
-      </div>
     </div>
   );
 }

@@ -1,33 +1,21 @@
 .user-profile {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-}
-.edit-forms{
-	padding: 2% ;
-}
-.bio-form{
-  
 }
 
 .user-posts {
-  height: 100;
   display: flex;
   flex-direction: column-reverse;
-  align-items: center;
-  width: 100%;
-  min-height: 1000px;
-  margin: 0% 25%;
-
-  background-color: var(--light-grey);
+  justify-items: center;
+  margin: 0 auto;
 }
 
 .profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
-  position: absolute;
+  max-width: 20%;
+  height: 11%;
   top: 0;
   left: 0;
   margin-top: 100px;
@@ -38,24 +26,24 @@
 
 .user-img {
   margin-top: 5%;
-  border-radius: 5%;
+  border-radius: 50%;
+  width: 200px;
   border: 5px solid;
   border-color: var(--light-grey);
 }
 
 .user-name {
   font-size: 32px;
-  margin-left: 10%;
-  align-self: flex-start;
 }
 
 .profile-info {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
   font-size: 24px;
-  margin-left: 10%;
-  align-self: flex-start;
-  flex-wrap: wrap;
+  text-align: left;
+  /* margin-left: 10%; */
+  /* align-self: flex-start;
+  flex-wrap: wrap; */
 }
 
 #user-bio {
@@ -71,4 +59,9 @@
   height: 466px;
   width: 350px;
   z-index: 10;
+}
+
+.friends-list {
+  width: 100%;
+  background-color: var(--sage);
 }

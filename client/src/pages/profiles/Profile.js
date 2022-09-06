@@ -2,25 +2,13 @@ import "./profile.css";
 // import { useState } from "react";
 
 import { useQuery, gql } from "@apollo/client";
-import { USER_POSTS } from "../../utils/queries";
+import { GET_ONE_USER } from "../../utils/queries";
 
 function Profile({ user }) {
-  const { error, loading, data } = useQuery(USER_POSTS, {
+  const { error, loading, data } = useQuery(GET_ONE_USER, {
     variables: user
   });
   console.log(data);
-
-  function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => {
-      images[item.replace("./", "")] = r(item);
-    });
-    return images;
-  }
-
-  const images = importAll(
-    require.context("../../components/images", false, /\.(png|jpe?g|svg)$/)
-  );
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
@@ -46,12 +34,21 @@ function Profile({ user }) {
         <div className="user-posts">
           {data.getOneUser.posts.map((post, index) =>
             <div key={index} className="post-card">
-              <img src={images[post.postPic]} />
+              <img src={post.postPic} />
             </div>
           )}
         </div>}
 
-      <div className="friends-list" />
+      <div className="friends-list">
+        {data &&
+          <ul>
+            {data.getOneUser.friends.map((friend, index) =>
+              <li key={friend._id}>
+                {friend.userName}
+              </li>
+            )}
+          </ul>}
+      </div>
     </div>
   );
 }

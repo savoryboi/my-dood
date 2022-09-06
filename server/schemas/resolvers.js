@@ -16,14 +16,16 @@ const resolvers = {
       return await User.find().populate("posts");
     },
     async getOneUser(_, args) {
-      return await User.findById(args.id).populate("posts");
+      const user = await User.findById(args.id).populate(["posts", "friends"]);
+      console.log(user);
+      return user;
     },
     async getUserByEmail(_, args) {
       return await User.findBy(args.email).populate("posts");
     },
     async getFriends(_, args) {
       return await User.findById(args.id).populate("friends");
-    },
+    }
   },
 
   Mutation: {
@@ -57,21 +59,23 @@ const resolvers = {
     async addPost(_, { postText, postPic }) {
       return await Post.create({
         postText,
-        postPic,
+        postPic
       });
     },
-    async addFriend(_, { _id, friendId }) {
+    async addFriend(_, { friendId }, context) {
+      if (!context.user)
+        throw new ApolloError("Not authorized to make this request");
       return await User.findOneAndUpdate(
-        { _id: _id },
+        { _id: context.user._id },
         {
-          $addToSet: { friends: [friendId] },
+          $addToSet: { friends: [friendId] }
         },
         {
-          new: true,
+          new: true
         }
       );
-    },
-  },
+    }
+  }
 };
 
 module.exports = resolvers;

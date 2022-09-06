@@ -3,11 +3,10 @@
   flex-direction: row;
   justify-content: center;
 }
-.edit-forms{
-	padding: 2% ;
+.edit-forms {
+  padding: 2%;
 }
-.bio-form{
-  
+.bio-form {
 }
 
 .user-posts {
@@ -37,6 +36,8 @@
 }
 
 .user-img {
+  height: 300px;
+  width: 300px;
   margin-top: 5%;
   border-radius: 5%;
   border: 5px solid;

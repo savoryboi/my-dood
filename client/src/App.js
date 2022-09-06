@@ -37,7 +37,6 @@ function App() {
           <Route path="/Profile" element={<Profile user={user} />} />
           <Route path="/Timeline" element={<Timeline user={user} />} />
           <Route path="/Search" element={<Search user={user} />} />
-          <Route path="/Upload" element={<UploadTest user={user} />} />
         </Routes>
       </Protect>
     </div>

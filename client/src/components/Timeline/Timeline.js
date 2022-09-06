@@ -7,7 +7,7 @@ function Timeline({user}) {
   const { data, loading, error } = useQuery(GET_ONE_USER, {
     variables: user
   });
-
+  if(data) console.log(data.getOneUser.friends[0].posts[0].postPic);
   if(loading) return 'Loading timeline...';
   if(error) throw new ApolloError('Uh oh!');
 
@@ -16,16 +16,17 @@ function Timeline({user}) {
     return (
       <main className='timeline'>
         {data &&
-          <div>
-            {data.getOneUser.friends.forEach(friend =>
-            
-              friend.posts.map((post, index) => {
-                <div className='post-card' key={index}>
-                  <img src={post.postPic}></img>
-                </div>
-              })
-            )}
-          </div>}
+          data.getOneUser.friends.map(friend => {
+           return (<div key={friend._id} className='post-card'>
+            <h3 className='user-display'>{friend.userName}</h3>
+
+            {friend.posts.map((post) => {
+             return <img className='tl-dood' key={post._id} src={post.postPic}></img>
+            })}
+
+            </div>)
+          })
+          }
       </main>
     )
 }

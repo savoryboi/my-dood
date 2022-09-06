@@ -36,7 +36,7 @@ const typeDefs = gql`
     getOneUser(id: ID!): User
     getUserByEmail(email: String!): User
     getFriends(id: ID!): User
-    getFriendsPosts(id: ID!): [Post]
+    getFriendsPosts(userId: ID!): [Post]
   }
 
   type Mutation {

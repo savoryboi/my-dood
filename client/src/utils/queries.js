@@ -6,9 +6,14 @@ export const GET_ONE_USER = gql`
       friends {
         _id
         userName
+        posts {
+          postPic
+          postText
+        }
       }
       posts {
         postPic
+        postText
       }
     }
   }
@@ -32,7 +37,3 @@ export const GET_NAMEID = gql`
     }
   }
 `;
-
-// export const GET_FRIEND_POSTS = gql`
-//   query 
-// `

@@ -16,7 +16,10 @@ const resolvers = {
       return await User.find().populate("posts");
     },
     async getOneUser(_, args) {
-      const user = await User.findById(args.id).populate(["posts", "friends"]);
+      const user = await User.findById(args.id).populate(["posts", "friends"]).populate({
+        path: "friends", 
+        populate: "posts"
+      });
       console.log(user);
       return user;
     },
@@ -26,9 +29,16 @@ const resolvers = {
     async getFriends(_, args) {
       return await User.findById(args.id).populate("friends");
     },
-    // async getFriendsPosts(_, {friendId}, context) {
-
-    // }
+    async getFriendsPosts(_, {friendId}, context) {
+      if (!context.user) {
+        throw new ApolloError("Not authorized to make this request");
+      }
+      const friends = context.user.friends;
+      console.log(friends)
+      // friends.forEach(friend => {
+      //   return await Post.find()
+      // })
+    }
   },
 
   Mutation: {

@@ -5,18 +5,25 @@ import { ADD_USER, LOGIN_USER } from "../utils/mutations";
 // import { GET_USER } from "../utils/queries";
 
 function AuthForm(props) {
+  const [selectedPic, setSelectedPic] = useState();
+  const changeHandler = (event) => {
+    setSelectedPic(event.target.files[0]);
+    handleInputChange(event);
+  };
+
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
     username: "",
     bio: "",
-    type: "login"
+    profilePic: "",
+    type: "login",
   });
   const [addUser] = useMutation(ADD_USER, {
-    variables: formInput
+    variables: formInput,
   });
   const [loginUser] = useMutation(LOGIN_USER, {
-    variables: formInput
+    variables: formInput,
   });
 
   const navigate = useNavigate();
@@ -27,7 +34,7 @@ function AuthForm(props) {
   } else {
     register = false;
   }
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let user, token;
@@ -41,18 +48,21 @@ function AuthForm(props) {
     navigate("/Draw");
   };
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     setFormInput({
       ...formInput,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>
-        {formInput.type[0].toUpperCase() + formInput.type.slice(1)}
-      </h1>
+      {/* <div>
+        <input type="file" onChange={this.fileHandler} />
+        <button onClick={this.fileUpload}> Upload Image</button>
+      </div> */}
+
+      <h1>{formInput.type[0].toUpperCase() + formInput.type.slice(1)}</h1>
       <input
         name="email"
         value={formInput.email}
@@ -68,24 +78,32 @@ function AuthForm(props) {
         placeholder="Enter your password"
       />
 
-      {register
-        ? <div>
-            <input
-              name="userName"
-              value={formInput.userName}
-              onChange={handleInputChange}
-              type="userName"
-              placeholder="Enter your username"
-            />
-            <input
-              name="bio"
-              value={formInput.bio}
-              onChange={handleInputChange}
-              type="bio"
-              placeholder="Enter your bio"
-            />
-          </div>
-        : <div>test</div>}
+      {register ? (
+        <div>
+          <input
+            name="userName"
+            value={formInput.userName}
+            onChange={handleInputChange}
+            type="userName"
+            placeholder="Enter your username"
+          />
+          <input
+            name="bio"
+            value={formInput.bio}
+            onChange={handleInputChange}
+            type="bio"
+            placeholder="Enter your bio"
+          />
+          <input
+            value={formInput.profilePic}
+            type="file"
+            name="profilePic"
+            onChange={changeHandler}
+          />
+        </div>
+      ) : (
+        <div>test</div>
+      )}
 
       <div className="type-wrap">
         <label htmlFor="login">

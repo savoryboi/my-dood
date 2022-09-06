@@ -3,11 +3,9 @@ import { useEffect, useState } from 'react';
 const wordsArray = ['apple', 'forever', 'arachnophobia', 'controller', 'foundation', 'cat', 'ballistic', 'campervan'];
 
 
-
 function Word() {
   const [word, setWord] = useState('pumpkins');
-  const now = new Date().getSeconds();
-  console.log(now);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,7 +23,7 @@ function Word() {
 
   return (
     <div>
-      <h3>{word}</h3>
+      <h3 id='wotd'>{word}</h3>
     </div>
   )
 }

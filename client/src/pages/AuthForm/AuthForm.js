@@ -1,4 +1,5 @@
 import "./AuthForm.css";
+import axios from "axios";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
@@ -7,11 +8,28 @@ import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 
 function AuthForm(props) {
   const [img, setImg] = useState();
+  const [imgPath, setImgPath] = useState();
 
   const onImageChange = (e) => {
     const [file] = e.target.files;
     setImg(URL.createObjectURL(file));
-    console.log(URL.createObjectURL(file));
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    const form = new FormData();
+    form.append("image", file);
+    axios
+      .post("/api/profilePic", form, config)
+      .then((res) => {
+        const z = res.data;
+        console.log(z);
+        return z;
+      })
+      .then((res) => {
+        setImgPath(res);
+      });
   };
 
   const [formInput, setFormInput] = useState({
@@ -19,7 +37,7 @@ function AuthForm(props) {
     password: "",
     username: "",
     bio: "",
-    profilePic: img,
+    profilePic: imgPath,
     type: "login",
   });
   const [addUser] = useMutation(ADD_USER, {

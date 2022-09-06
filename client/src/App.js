@@ -5,7 +5,7 @@ import { isAuthenticated } from "./utils/auth";
 import Header from "./components/Header/Header";
 import Protect from "./components/Protect";
 import Landing from "./pages/Landing";
-import AuthForm from "./pages/AuthForm";
+import AuthForm from "./pages/AuthForm/AuthForm";
 // import EditProfile from "./pages/profiles/EditProfile";
 import Draw from "./pages/Draw/Draw";
 import Profile from "./pages/profiles/Profile";
@@ -15,7 +15,7 @@ import Search from "./pages/Search";
 
 function App() {
   const [user, setUser] = useState(null);
-  
+
   // useEffect(() => {
   //   const user_data = isAuthenticated();
 

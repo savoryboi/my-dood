@@ -1,8 +1,12 @@
 import { gql } from "@apollo/client";
 
-export const USER_POSTS = gql`
+export const GET_ONE_USER = gql`
   query getOneUser($id: ID!) {
     getOneUser(id: $id) {
+      friends {
+        _id
+        userName
+      }
       posts {
         postPic
       }

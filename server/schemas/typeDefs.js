@@ -46,7 +46,7 @@ const typeDefs = gql`
       userName: String!
       bio: String
     ): Auth!
-    addFriend(_id: ID!, friendId: ID!): User!
+    addFriend(friendId: ID!): User!
     addPost(postPic: String!, postText: String!): Post!
     # edit(userName: String!, bio: String): Profile!
   }

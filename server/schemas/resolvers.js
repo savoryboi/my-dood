@@ -20,13 +20,16 @@ const resolvers = {
     },
     async getUserByEmail(_, args) {
       return await User.findBy(args.email).populate("posts");
+    },
+    async getFriends(_, args) {
+      return await User.findById(args.id).populate("friends");
     }
   },
 
   Mutation: {
     async addUser(_, { email, password, userName, bio }, context) {
       try {
-        const user = await User.create({email, password, userName, bio}, );
+        const user = await User.create({ email, password, userName, bio });
 
         const token = signToken(user);
         return { user, token };
@@ -57,16 +60,17 @@ const resolvers = {
         postPic
       });
     },
-    // async edit(_, { _id, userName, bio }, context) {
-    //   try {
-    //     const user = await User.findById({ _id });
-    //     const profile = await Profile.create({ userName, bio });
-
-    //     return { profile };
-    //   } catch (err) {
-    //     throw new ApolloError(err);
-    //   }
-    // }
+    async addFriend(_, { _id, friendId }) {
+      return await User.findOneAndUpdate(
+        { _id: _id },
+        {
+          $addToSet: { friends: [friendId] }
+        },
+        {
+          new: true
+        }
+      );
+    }
   }
 };
 

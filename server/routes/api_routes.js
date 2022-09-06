@@ -28,7 +28,7 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
 
     const post = await Post.create({
       postPic: req.file.path
-        .split("..(\\|/)client(\\|/)src(\\|/)components(\\|/)images(\\|/)")
+        .split("..\\client\\src\\components\\images\\")
         .pop()
         .trim(),
       postText: user.email
@@ -41,11 +41,11 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
   }
 });
 
-api_router.get(("/images/:pic"), async (req, res) => {
-  console.log(req.params.pic)
-  const images = await Post.find({post_pic: req.params.pic})
-  
-  res.send(images.post_pic)
-})
+api_router.get("/images/:pic", async (req, res) => {
+  console.log(req.params.pic);
+  const images = await Post.find({ post_pic: req.params.pic });
+
+  res.send(images.post_pic);
+});
 
 module.exports = api_router;

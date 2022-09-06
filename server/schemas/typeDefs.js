@@ -35,11 +35,18 @@ const typeDefs = gql`
     getAllUsers: [User]
     getOneUser(id: ID!): User
     getUserByEmail(email: String!): User
+    getFriends(id: ID!): User
   }
 
   type Mutation {
     loginUser(email: String!, password: String!): Auth!
-    addUser(email: String!, password: String!, userName: String!, bio: String): Auth!
+    addUser(
+      email: String!
+      password: String!
+      userName: String!
+      bio: String
+    ): Auth!
+    addFriend(_id: ID!, friendId: ID!): User!
     addPost(postPic: String!, postText: String!): Post!
     # edit(userName: String!, bio: String): Profile!
   }

@@ -5,7 +5,6 @@ import { useQuery, gql } from "@apollo/client";
 import { USER_POSTS } from "../../utils/queries";
 
 function Profile({ user }) {
-  console.log(user);
   const { error, loading, data } = useQuery(USER_POSTS, {
     variables: user
   });
@@ -25,7 +24,7 @@ function Profile({ user }) {
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
-
+  console.log(user);
   return (
     <div className="user-profile">
       <div className="profile-container">
@@ -33,13 +32,13 @@ function Profile({ user }) {
           className="user-img"
           src="https://p.kindpng.com/picc/s/137-1371319_shrek-meme-birthday-card-shrek-emoji-png-transparent.png"
         />
-        <div className="user-name"> Shrek</div>
+        <div className="user-name">
+          {user.userName}
+        </div>
         <div className="profile-info">
           <p id="user-bio">
-            big green man swamp onions bugs donkey fiona dragon donkey sex
-            ginger bread man puss in boots
+            {user.bio}
           </p>
-          <p id="user-bio">shrek.com</p>
         </div>
       </div>
 

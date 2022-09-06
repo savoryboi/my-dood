@@ -21,35 +21,24 @@ function AuthForm(props) {
 
   const navigate = useNavigate();
 
+  let register = false;
+  if (formInput.type === "register") {
+    register = true;
+  } else {
+    register = false;
+  }
   const handleSubmit = async e => {
     e.preventDefault();
 
     let user, token;
     let mutation = formInput.type === "register" ? addUser : loginUser;
     let type = formInput.type === "register" ? "addUser" : "loginUser";
-
     const { data } = await mutation();
 
     user = data[type].user;
     token = data[type].token;
     localStorage.setItem("token", token);
-
-    // const [error, loading, getUser] = useLazyQuery(GET_USER, {
-    //   variables: user
-    // });
-
-    // let query = getUser;
-    // const { userObj } = await query();
-    // if (loading) return "Loading...";
-    // if (error) return `Error! ${error.message}`;
-
-    // console.log(userObj);
-
-    // props.setUser(user);
-
-
     navigate("/Draw");
-
   };
 
   const handleInputChange = e => {
@@ -79,23 +68,24 @@ function AuthForm(props) {
         placeholder="Enter your password"
       />
 
-
-      <div>
-        <input
-          name="userName"
-          value={formInput.userName}
-          onChange={handleInputChange}
-          type="userName"
-          placeholder="Enter your username"
-        />
-        <input
-          name="bio"
-          value={formInput.bio}
-          onChange={handleInputChange}
-          type="bio"
-          placeholder="Enter your bio"
-        />
-      </div>
+      {register
+        ? <div>
+            <input
+              name="userName"
+              value={formInput.userName}
+              onChange={handleInputChange}
+              type="userName"
+              placeholder="Enter your username"
+            />
+            <input
+              name="bio"
+              value={formInput.bio}
+              onChange={handleInputChange}
+              type="bio"
+              placeholder="Enter your bio"
+            />
+          </div>
+        : <div>test</div>}
 
       <div className="type-wrap">
         <label htmlFor="login">

@@ -1,8 +1,7 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 import { useState, useEffect } from "react";
 import { isAuthenticated } from "./utils/auth";
-import Header from "./components/Header/Header";
 import Protect from "./components/Protect";
 import Landing from "./pages/Landing";
 import AuthForm from "./pages/AuthForm";
@@ -12,6 +11,7 @@ import Profile from "./pages/profiles/Profile";
 import Timeline from "./components/Timeline/Timeline";
 import Home from "./pages/main/Home";
 import Search from "./pages/Search";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);

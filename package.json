@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/savoryboi/my-dood#readme",
   "dependencies": {
-    "concurrently": "^7.3.0"
+    "axios": "^0.27.2",
+    "concurrently": "^7.3.0",
+    "multer": "^1.4.5-lts.1",
+    "react-burger-menu": "^3.0.8"
   }
 }

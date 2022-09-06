@@ -1,7 +1,8 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
-import { ADD_FRIEND } from "../utils/mutations";
-import { GET_NAMEID } from "../utils/queries";
+import { ADD_FRIEND } from "../../utils/mutations";
+import { GET_NAMEID } from "../../utils/queries";
+import './Search.css'
 
 function Search({ user }) {
   const [searchText, setSearchText] = useState("");
@@ -14,7 +15,7 @@ function Search({ user }) {
   const { error, loading, data } = useQuery(GET_NAMEID);
 
   return (
-    <div>
+    <div className="searchDiv">
       <input
         type="text"
         placeholder="Search users"
@@ -23,7 +24,7 @@ function Search({ user }) {
         }}
       />
       {data &&
-        <div className="">
+        <div className="searchResults">
           {data.getAllUsers
             .filter(value => {
               if (searchText === "") {
@@ -35,16 +36,18 @@ function Search({ user }) {
               }
             })
             .map((searchedUsers, index) =>
-              <div key={index}>
+              <div className="result-container" key={index}>
                 <h3>
                   {searchedUsers.userName}
                 </h3>
                 <button className="followBtn"
                   onClick={(e) => {
-                    e.target.innerText = 'Added!'
+                    e.target.innerText = 'Added!';
+                    e.target.style.backgroundColor = 'hotpink';
                     addToFriends({
                       variables: { friendId: searchedUsers._id }
-                    })}
+                    })
+                  }
                   }
                 >
                   Follow

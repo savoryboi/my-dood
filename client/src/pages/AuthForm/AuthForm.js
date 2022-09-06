@@ -119,8 +119,11 @@ function AuthForm(props) {
             type="bio"
             placeholder="Enter your bio"
           />
-          <input type="file" onChange={onImageChange} />
-          <img src={img} height="150px" width="150px" alt="" />
+          <input type="file" onChange={onImageChange} onClick={() => {
+            const img_preview = document.getElementById('pp-preview');
+            img_preview.classList.remove('hidden')
+          }}/>
+          <img className="hidden" id="pp-preview" src={img} alt="" />
         </div>
       ) : (
         <div />

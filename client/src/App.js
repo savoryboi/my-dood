@@ -5,12 +5,11 @@ import { isAuthenticated } from "./utils/auth";
 import Protect from "./components/Protect";
 import Landing from "./pages/Landing";
 import AuthForm from "./pages/AuthForm/AuthForm";
-// import EditProfile from "./pages/profiles/EditProfile";
 import Draw from "./pages/Draw/Draw";
 import Profile from "./pages/profiles/Profile";
 import Timeline from "./components/Timeline/Timeline";
 import Home from "./pages/main/Home";
-import Search from "./pages/Search";
+import Search from "./pages/Search/Search";
 import UploadTest from "./pages/UploadTest";
 import { Routes, Route } from "react-router-dom";
 
@@ -29,10 +28,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing user={user} />} />
           <Route path="/auth-form" element={<AuthForm />} />
-          {/* <Route
-            path="/EditProfile"
-            element={<EditProfile setUser={setUser} />}
-          /> */}
           <Route path="/Draw" element={<Draw setUser={setUser} />} />
           <Route path="/Profile" element={<Profile user={user} />} />
           <Route path="/Timeline" element={<Timeline user={user} />} />

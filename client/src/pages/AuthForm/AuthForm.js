@@ -90,6 +90,7 @@ function AuthForm(props) {
     });
   };
 
+
   return (
     <form onSubmit={handleSubmit}>
       <h1>
@@ -105,7 +106,6 @@ function AuthForm(props) {
           placeholder="Enter your email address"
         />
         <h3>Password</h3>
-
         <input
           name="password"
           value={formInput.password}
@@ -114,11 +114,33 @@ function AuthForm(props) {
           placeholder="Enter your password"
         />
       </div>
-
-      {register
-        ? <div className="authInput">
-            <h3>Username</h3>
-
+      {register ? (
+        <div className="authInput">
+          <h3>Username</h3>
+          <input
+            name="userName"
+            value={formInput.userName}
+            onChange={handleInputChange}
+            type="userName"
+            placeholder="Enter your username"
+          />
+          <h3>Bio</h3>
+          <input
+            name="bio"
+            value={formInput.bio}
+            onChange={handleInputChange}
+            type="bio"
+            placeholder="Enter your bio"
+          />
+          <input type="file" onChange={onImageChange} onClick={() => {
+            const img_preview = document.getElementById('pp-preview');
+            img_preview.classList.remove('hidden')
+          }}/>
+          <img className="hidden" id="pp-preview" src={img} alt="" />
+        </div>
+      ) : (
+        <div />
+      )}
       <div className="type-wrap">
         {register
           ? <label htmlFor="login">

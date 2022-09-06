@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -18,9 +22,13 @@ form .authInput h3 {
 }
 
 form .authInput input {
+  padding: 6px 12px;
   margin: 6px;
   width: 250px;
   height: 35px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
 }
 
 form .type-wrap label {
@@ -50,4 +58,32 @@ form button {
   margin: 10px;
   padding: 7px 25px;
   font-size: larger;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  transition: .222s;
+}
+
+form button:hover {
+  background-color: var(--blue);
+}
+
+input::file-selector-button {
+  border: none;
+  outline: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  transition: .222s;
+}
+
+input::file-selector-button:hover {
+  background-color: hotpink;
+}
+
+img {
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
 }

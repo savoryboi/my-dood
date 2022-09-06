@@ -8,9 +8,8 @@ import AuthForm from "./pages/AuthForm/AuthForm";
 import Draw from "./pages/Draw/Draw";
 import Profile from "./pages/profiles/Profile";
 import Timeline from "./components/Timeline/Timeline";
-import Home from "./pages/main/Home";
 import Search from "./pages/Search/Search";
-import UploadTest from "./pages/UploadTest";
+import Word from "./components/Word";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -27,10 +26,34 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Landing user={user} />} />
-          <Route path="/auth-form" element={<AuthForm />} />
+          <Route
+            path="/auth-form"
+            element={
+              <div>
+                <Word />
+                <AuthForm />
+              </div>
+            }
+          />
           <Route path="/Draw" element={<Draw setUser={setUser} />} />
-          <Route path="/Profile" element={<Profile user={user} />} />
-          <Route path="/Timeline" element={<Timeline user={user} />} />
+          <Route
+            path="/Profile"
+            element={
+              <div>
+                <Word />
+                <Profile user={user} />
+              </div>
+            }
+          />
+          <Route
+            path="/Timeline"
+            element={
+              <div>
+                <Word />
+                <Timeline user={user} />
+              </div>
+            }
+          />{" "}
           <Route path="/Search" element={<Search user={user} />} />
         </Routes>
       </Protect>

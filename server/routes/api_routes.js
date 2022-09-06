@@ -41,11 +41,11 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
   }
 });
 
-api_router.get("/images/:pic", async (req, res) => {
-  console.log(req.params.pic);
-  const images = await Post.find({ post_pic: req.params.pic });
+// api_router.get("/images/:pic", async (req, res) => {
+//   console.log(req.params.pic);
+//   const images = await Post.find({ post_pic: req.params.pic });
 
-  res.send(images.post_pic);
-});
+//   res.send(images.post_pic);
+// });
 
 module.exports = api_router;

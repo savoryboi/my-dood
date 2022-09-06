@@ -2,7 +2,7 @@ const api_router = require("express").Router();
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, "../client/src/components/images");
+    cb(null, "public/images");
   },
   filename(req, file, cb) {
     cb(null, Date.now() + ".png");
@@ -27,10 +27,7 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
         .send({ message: "You must sign in to create a post" });
 
     const post = await Post.create({
-      postPic: req.file.path
-        .split("..\\client\\src\\components\\images\\")
-        .pop()
-        .trim(),
+      postPic: `images/${req.file.filename}`,
       postText: user.email
     });
 

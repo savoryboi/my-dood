@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     cb(null, Date.now() + ".png");
-  }
+  },
 });
 const upload = multer({ storage });
 const User = require("../models/User");
@@ -28,7 +28,7 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
 
     const post = await Post.create({
       postPic: `images/${req.file.filename}`,
-      postText: user.email
+      postText: user.email,
     });
 
     user.posts.push(post._id);
@@ -36,6 +36,9 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
 
     res.send({ message: "success!" });
   }
+});
+api_router.post("/api/profilePic", upload.single("image"), async (req, res) => {
+  res.send(`images/${req.file.filename}`);
 });
 
 // api_router.get("/images/:pic", async (req, res) => {

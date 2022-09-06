@@ -1,7 +1,8 @@
+import "./AuthForm.css";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { ADD_USER, LOGIN_USER } from "../utils/mutations";
+import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 // import { GET_USER } from "../utils/queries";
 
 function AuthForm(props) {
@@ -57,6 +58,7 @@ function AuthForm(props) {
 
   return (
     <form onSubmit={handleSubmit}>
+<<<<<<< HEAD:client/src/pages/AuthForm.js
       {/* <div>
         <input type="file" onChange={this.fileHandler} />
         <button onClick={this.fileUpload}> Upload Image</button>
@@ -104,30 +106,78 @@ function AuthForm(props) {
       ) : (
         <div>test</div>
       )}
+=======
+      <h1>
+        {formInput.type[0].toUpperCase() + formInput.type.slice(1)}
+      </h1>
+      <div className="authInput">
+        <h3>Email</h3>
+        <input
+          name="email"
+          value={formInput.email}
+          onChange={handleInputChange}
+          type="email"
+          placeholder="Enter your email address"
+        />
+        <h3>Password</h3>
+
+        <input
+          name="password"
+          value={formInput.password}
+          onChange={handleInputChange}
+          type="password"
+          placeholder="Enter your password"
+        />
+      </div>
+
+      {register
+        ? <div className="authInput">
+            <h3>Username</h3>
+
+            <input
+              name="userName"
+              value={formInput.userName}
+              onChange={handleInputChange}
+              type="userName"
+              placeholder="Enter your username"
+            />
+            <h3>Bio</h3>
+
+            <input
+              name="bio"
+              value={formInput.bio}
+              onChange={handleInputChange}
+              type="bio"
+              placeholder="Enter your bio"
+            />
+          </div>
+        : <div />}
+>>>>>>> main:client/src/pages/AuthForm/AuthForm.js
 
       <div className="type-wrap">
-        <label htmlFor="login">
-          Login
-          <input
-            checked={formInput.type === "login"}
-            onChange={handleInputChange}
-            name="type"
-            id="login"
-            type="radio"
-            value="login"
-          />
-        </label>
-        <label htmlFor="register">
-          Register
-          <input
-            checked={formInput.type === "register"}
-            onChange={handleInputChange}
-            name="type"
-            id="register"
-            type="radio"
-            value="register"
-          />
-        </label>
+        {register
+          ? <label htmlFor="login">
+              Already a user? Login
+              <input
+                checked={formInput.type === "login"}
+                onChange={handleInputChange}
+                name="type"
+                id="login"
+                type="radio"
+                value="login"
+              />
+            </label>
+          : <label htmlFor="register">
+              New to MyDood? Register
+              <input
+                checked={formInput.type === "register"}
+                onChange={handleInputChange}
+                name="type"
+                id="register"
+                type="radio"
+                value="register"
+              />
+            </label>}
       </div>
       <button>Submit</button>
     </form>

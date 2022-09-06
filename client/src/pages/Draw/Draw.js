@@ -4,6 +4,7 @@ import { Canvas } from "../../components/CanvasStuff/Canvas";
 import { CanvasButtons } from "../../components/CanvasStuff/CanvasButtons";
 import { useEffect } from "react";
 import { isAuthenticated } from "../../utils/auth";
+import Word from '../../components/Word';
 
 function Draw(props) {
   useEffect(() => {
@@ -13,7 +14,7 @@ function Draw(props) {
   }, []);
   return (
     <CanvasProvider id="draw">
-      <h2>Word</h2>
+      <Word />
       <div className="canvascontainer">
         <Canvas />
         <CanvasButtons />

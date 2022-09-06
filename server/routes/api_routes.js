@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     cb(null, Date.now() + ".png");
-  },
+  }
 });
 const upload = multer({ storage });
 const User = require("../models/User");
@@ -29,7 +29,6 @@ api_router.post("/api/image", upload.single("image"), async (req, res) => {
     const post = await Post.create({
       postPic: `images/${req.file.filename}`,
       postText: req.headers.title
-
     });
 
     user.posts.push(post._id);

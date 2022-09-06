@@ -1,6 +1,6 @@
 import "./profile.css";
 // import { useState } from "react";
-import Word from '../../components/Word';
+import Word from "../../components/Word";
 import { useQuery, gql } from "@apollo/client";
 import { GET_ONE_USER } from "../../utils/queries";
 
@@ -16,10 +16,7 @@ function Profile({ user }) {
   return (
     <div className="user-profile">
       <div className="profile-container">
-        <img
-          className="user-img"
-          src="https://p.kindpng.com/picc/s/137-1371319_shrek-meme-birthday-card-shrek-emoji-png-transparent.png"
-        />
+        <img className="user-img" src={user.profilePic} />
         <div className="user-name">
           {user.userName}
         </div>

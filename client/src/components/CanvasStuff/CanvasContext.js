@@ -103,9 +103,11 @@ export const CanvasProvider = ({ children }) => {
     const config = {
       headers: {
         "content-type": "multipart/form-data",
-        authorization: `Verify ${localStorage.getItem("token")}`
+        authorization: `Verify ${localStorage.getItem("token")}`,
+        title: document.getElementById('wotd').innerText
       }
     };
+    console.log(config);
     const form = new FormData();
     canvas.toBlob(blob => {
       form.append("image", blob);

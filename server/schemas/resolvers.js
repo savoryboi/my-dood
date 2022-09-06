@@ -25,13 +25,19 @@ const resolvers = {
     },
     async getFriends(_, args) {
       return await User.findById(args.id).populate("friends");
-    }
+    },
   },
 
   Mutation: {
-    async addUser(_, { email, password, userName, bio }, context) {
+    async addUser(_, { email, password, userName, bio, profilePic }, context) {
       try {
-        const user = await User.create({ email, password, userName, bio });
+        const user = await User.create({
+          email,
+          password,
+          userName,
+          bio,
+          profilePic,
+        });
 
         const token = signToken(user);
         return { user, token };
@@ -59,7 +65,7 @@ const resolvers = {
     async addPost(_, { postText, postPic }) {
       return await Post.create({
         postText,
-        postPic
+        postPic,
       });
     },
     async addFriend(_, { friendId }, context) {
@@ -68,14 +74,14 @@ const resolvers = {
       return await User.findOneAndUpdate(
         { _id: context.user._id },
         {
-          $addToSet: { friends: [friendId] }
+          $addToSet: { friends: [friendId] },
         },
         {
-          new: true
+          new: true,
         }
       );
-    }
-  }
+    },
+  },
 };
 
 module.exports = resolvers;

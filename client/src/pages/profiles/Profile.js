@@ -34,7 +34,8 @@ function Profile({ user }) {
         <div className="user-posts">
           {data.getOneUser.posts.map((post, index) =>
             <div key={index} className="post-card">
-              <img src={post.postPic} />
+              <h3 className="user-display">{post.postText}</h3>
+              <img className='tl-dood' src={post.postPic} />
             </div>
           )}
         </div>}

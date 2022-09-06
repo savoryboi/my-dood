@@ -5,7 +5,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 function Protect(props) {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(props);
   useEffect(() => {
     if (
       !isAuthenticated() &&

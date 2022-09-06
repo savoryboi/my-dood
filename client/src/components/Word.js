@@ -1,26 +1,25 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
+
+
 
 function Word() {
-  const words = ['apple','forever', 'aracnophobia', 'controller', 'foundation', 'cat', 'ballistic', 'campervan'];
-  
-  setInterval(function() {
-    // Set interval for checking
-    var date = new Date(); // Create a Date object to find out what time it is
-    console.log(date.getMinutes())
-    if (date.getMinutes() === 44) {
-      words.shift()
-      return words;
+  const wordsArray = ['apple','forever', 'aracnophobia', 'controller', 'foundation', 'cat', 'ballistic', 'campervan'];
+  const [word, setWord] = useState('');
+  const now = new Date().getMinutes();
+
+    setInterval(() => {
+
+      if(now === 30) {
+       let the_word = wordsArray.shift()
+        
+       setWord(the_word[0])
+        return(
+          <div>
+            <h3>{word}</h3>
+          </div>
+        )
+      }
+      }, 5000)
     }
-    console.log(words[0])
-  }, 6000); // Repeat every 60000 milliseconds (1 minute)
-
-  return (
-    <div>
-      <h3>{words[0]}</h3>
-
-    </div>
-    )
-  
-}
 
 export default Word;

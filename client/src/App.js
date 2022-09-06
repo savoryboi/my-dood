@@ -14,7 +14,7 @@ import Home from "./pages/main/Home";
 
 function App() {
   const [user, setUser] = useState(null);
-
+  
   // useEffect(() => {
   //   const user_data = isAuthenticated();
 

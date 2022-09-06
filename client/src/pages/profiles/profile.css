@@ -70,5 +70,5 @@
 .post-card img {
   height: 466px;
   width: 350px;
-  z-index: 1000;
+  z-index: 10;
 }

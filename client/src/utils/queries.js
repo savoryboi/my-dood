@@ -20,3 +20,11 @@ export const GET_USER = gql`
     }
   }
 `;
+export const GET_NAMEID = gql`
+  query getAllUsers {
+    getAllUsers {
+      _id
+      userName
+    }
+  }
+`;

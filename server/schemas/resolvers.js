@@ -23,7 +23,7 @@ const resolvers = {
     },
     async getFriends(_, args) {
       return await User.findById(args.id).populate("friends");
-    }
+    },
   },
 
   Mutation: {
@@ -57,21 +57,21 @@ const resolvers = {
     async addPost(_, { postText, postPic }) {
       return await Post.create({
         postText,
-        postPic
+        postPic,
       });
     },
     async addFriend(_, { _id, friendId }) {
       return await User.findOneAndUpdate(
         { _id: _id },
         {
-          $addToSet: { friends: [friendId] }
+          $addToSet: { friends: [friendId] },
         },
         {
-          new: true
+          new: true,
         }
       );
-    }
-  }
+    },
+  },
 };
 
 module.exports = resolvers;

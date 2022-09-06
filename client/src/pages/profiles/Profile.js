@@ -1,6 +1,6 @@
 import "./profile.css";
 // import { useState } from "react";
-
+import Word from '../../components/Word';
 import { useQuery, gql } from "@apollo/client";
 import { GET_ONE_USER } from "../../utils/queries";
 

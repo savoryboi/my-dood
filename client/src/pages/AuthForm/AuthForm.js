@@ -6,18 +6,27 @@ import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 // import { GET_USER } from "../utils/queries";
 
 function AuthForm(props) {
+  const [img, setImg] = useState();
+
+  const onImageChange = (e) => {
+    const [file] = e.target.files;
+    setImg(URL.createObjectURL(file));
+    console.log(URL.createObjectURL(file));
+  };
+
   const [formInput, setFormInput] = useState({
     email: "",
     password: "",
     username: "",
     bio: "",
-    type: "login"
+    profilePic: img,
+    type: "login",
   });
   const [addUser] = useMutation(ADD_USER, {
-    variables: formInput
+    variables: formInput,
   });
   const [loginUser] = useMutation(LOGIN_USER, {
-    variables: formInput
+    variables: formInput,
   });
 
   const navigate = useNavigate();
@@ -28,7 +37,7 @@ function AuthForm(props) {
   } else {
     register = false;
   }
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let user, token;
@@ -42,18 +51,16 @@ function AuthForm(props) {
     navigate("/Draw");
   };
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     setFormInput({
       ...formInput,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>
-        {formInput.type[0].toUpperCase() + formInput.type.slice(1)}
-      </h1>
+      <h1>{formInput.type[0].toUpperCase() + formInput.type.slice(1)}</h1>
       <div className="authInput">
         <h3>Email</h3>
         <input
@@ -74,53 +81,59 @@ function AuthForm(props) {
         />
       </div>
 
-      {register
-        ? <div className="authInput">
-            <h3>Username</h3>
+      {register ? (
+        <div className="authInput">
+          <h3>Username</h3>
 
-            <input
-              name="userName"
-              value={formInput.userName}
-              onChange={handleInputChange}
-              type="userName"
-              placeholder="Enter your username"
-            />
-            <h3>Bio</h3>
+          <input
+            name="userName"
+            value={formInput.userName}
+            onChange={handleInputChange}
+            type="userName"
+            placeholder="Enter your username"
+          />
+          <h3>Bio</h3>
 
-            <input
-              name="bio"
-              value={formInput.bio}
-              onChange={handleInputChange}
-              type="bio"
-              placeholder="Enter your bio"
-            />
-          </div>
-        : <div />}
+          <input
+            name="bio"
+            value={formInput.bio}
+            onChange={handleInputChange}
+            type="bio"
+            placeholder="Enter your bio"
+          />
+          <input type="file" onChange={onImageChange} />
+          <img src={img} height="150px" width="150px" alt="" />
+        </div>
+      ) : (
+        <div />
+      )}
 
       <div className="type-wrap">
-        {register
-          ? <label htmlFor="login">
-              Already a user? Login
-              <input
-                checked={formInput.type === "login"}
-                onChange={handleInputChange}
-                name="type"
-                id="login"
-                type="radio"
-                value="login"
-              />
-            </label>
-          : <label htmlFor="register">
-              New to MyDood? Register
-              <input
-                checked={formInput.type === "register"}
-                onChange={handleInputChange}
-                name="type"
-                id="register"
-                type="radio"
-                value="register"
-              />
-            </label>}
+        {register ? (
+          <label htmlFor="login">
+            Already a user? Login
+            <input
+              checked={formInput.type === "login"}
+              onChange={handleInputChange}
+              name="type"
+              id="login"
+              type="radio"
+              value="login"
+            />
+          </label>
+        ) : (
+          <label htmlFor="register">
+            New to MyDood? Register
+            <input
+              checked={formInput.type === "register"}
+              onChange={handleInputChange}
+              name="type"
+              id="register"
+              type="radio"
+              value="register"
+            />
+          </label>
+        )}
       </div>
       <button>Submit</button>
     </form>

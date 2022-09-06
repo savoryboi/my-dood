@@ -11,6 +11,7 @@ import Profile from "./pages/profiles/Profile";
 import Timeline from "./components/Timeline/Timeline";
 import Home from "./pages/main/Home";
 import Search from "./pages/Search";
+import UploadTest from "./pages/UploadTest";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/Profile" element={<Profile user={user} />} />
           <Route path="/Timeline" element={<Timeline user={user} />} />
           <Route path="/Search" element={<Search user={user} />} />
+          <Route path="/Upload" element={<UploadTest user={user} />} />
         </Routes>
       </Protect>
     </div>

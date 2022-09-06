@@ -13,7 +13,7 @@
 .user-posts {
   height: 100;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   width: 100%;
   min-height: 1000px;

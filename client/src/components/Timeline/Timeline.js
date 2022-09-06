@@ -1,36 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { ApolloError, useQuery } from '@apollo/client';
 import './Timeline.css';
+import { GET_ONE_USER } from '../../utils/queries';
 
-function Timeline() {
-  var all_posts = [
-    {
-      pic_url: 'https://visafoto.com/img/docs/zz_30x40.jpg',
-      post_text: 'this is a woman'
-    }, 
-    {
-      pic_url: 'https://visafoto.com/img/docs/vi_apec_business_travel_card.jpg', 
-      post_text: 'also woman'
-    },
-    {
-      pic_url: 'https://visafoto.com/img/3x4-cm-passport-photo-example.jpg', 
-      post_text: 'also woman'
-    }
-  ]
+function Timeline({user}) {
+  const { data, loading, error } = useQuery(GET_ONE_USER, {
+    variables: user
+  });
+  if(data) console.log(data.getOneUser.friends[0].posts[0].postPic);
+  if(loading) return 'Loading timeline...';
+  if(error) throw new ApolloError('Uh oh!');
+
+  
 
     return (
       <main className='timeline'>
-        {all_posts.map((post, index) => {
-          return (
-            <div key={index} className='post-card'>
-              <h3 className='user-display'>username</h3>
-              <img width='350px' height='466px' className='tl-dood' src={post.pic_url} alt={post.post_text} />
-            </div>
-          )
-        })}
+        {data &&
+          data.getOneUser.friends.map(friend => {
+           return (<div key={friend._id} className='post-card'>
+            <h3 className='user-display'>{friend.userName}</h3>
+
+            {friend.posts.map((post) => {
+             return <img className='tl-dood' key={post._id} src={post.postPic}></img>
+            })}
+
+            </div>)
+          })
+          }
       </main>
     )
-
-
 }
 
 export default Timeline;

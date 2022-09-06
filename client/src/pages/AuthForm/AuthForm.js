@@ -1,12 +1,16 @@
 import "./AuthForm.css";
 import axios from "axios";
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import { GET_ONE_USER } from "../../utils/queries";
+
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 // import { GET_USER } from "../utils/queries";
 
 function AuthForm(props) {
+  // let wotd = document.getElementById("wotd").innerText;
+
   const [img, setImg] = useState();
 
   const [formInput, setFormInput] = useState({
@@ -43,6 +47,10 @@ function AuthForm(props) {
       });
   };
 
+  // const { getOne } = useQuery(GET_ONE_USER, {
+  //   variables: user
+  // });
+
   const [addUser] = useMutation(ADD_USER, {
     variables: formInput
   });
@@ -69,7 +77,10 @@ function AuthForm(props) {
     user = data[type].user;
     token = data[type].token;
     localStorage.setItem("token", token);
+
+    // if (formInput.type === "register") {
     navigate("/Draw");
+    // }
   };
 
   const handleInputChange = e => {
@@ -104,35 +115,9 @@ function AuthForm(props) {
         />
       </div>
 
-      {register ? (
-        <div className="authInput">
-          <h3>Username</h3>
-
-          <input
-            name="userName"
-            value={formInput.userName}
-            onChange={handleInputChange}
-            type="userName"
-            placeholder="Enter your username"
-          />
-          <h3>Bio</h3>
-
-          <input
-            name="bio"
-            value={formInput.bio}
-            onChange={handleInputChange}
-            type="bio"
-            placeholder="Enter your bio"
-          />
-          <input type="file" onChange={onImageChange} onClick={() => {
-            const img_preview = document.getElementById('pp-preview');
-            img_preview.classList.remove('hidden')
-          }}/>
-          <img className="hidden" id="pp-preview" src={img} alt="" />
-        </div>
-      ) : (
-        <div />
-      )}
+      {register
+        ? <div className="authInput">
+            <h3>Username</h3>
 
             <input
               name="userName"

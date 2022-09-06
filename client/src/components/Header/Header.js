@@ -21,6 +21,11 @@ function Header() {
           Timeline
         </NavLink>
         <NavLink to="/Search" id="search" className="bm-item">Find</NavLink>
+        <NavLink to="auth-form" id="logout" className="bm-item" onClick={
+          function() {
+            localStorage.removeItem("token")
+          }
+        }>Logout</NavLink>
         {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
       </Menu>
     </header>

@@ -8,15 +8,13 @@ function Search({ user }) {
     _id: "",
     friendId: "",
   });
+  const [searchText, setSearchText] = useState("");
   const [userList, setUserList] = useState();
 
   //   setFriend({ _id: user._id });
   function addToFriends(_id) {
     setFriend({ _id: user._id, friendId: _id });
   }
-  //   const test = () => {
-  //     console.log("hi");
-  //   };
   // const { error, loading } = useMutation(ADD_FRIEND, {
   //   variables: _id,
   // });
@@ -25,17 +23,33 @@ function Search({ user }) {
 
   return (
     <div>
-      <input type="text" placeholder="Search users" />
+      <input
+        type="text"
+        placeholder="Search users"
+        onChange={(event) => {
+          setSearchText(event.target.value);
+        }}
+      />
       {data && (
         <div className="">
-          {data.getAllUsers.map((searchedUsers, index) => (
-            <div key={index}>
-              <h3>{searchedUsers.userName}</h3>
-              <button value={searchedUsers._id} onChange={addToFriends}>
-                Follow
-              </button>
-            </div>
-          ))}
+          {data.getAllUsers
+            .filter((value) => {
+              if (searchText === "") {
+                return value;
+              } else if (
+                value.userName.toLowerCase().includes(searchText.toLowerCase())
+              ) {
+                return value;
+              }
+            })
+            .map((searchedUsers, index) => (
+              <div key={index}>
+                <h3>{searchedUsers.userName}</h3>
+                <button value={searchedUsers._id} onChange={addToFriends}>
+                  Follow
+                </button>
+              </div>
+            ))}
         </div>
       )}
     </div>

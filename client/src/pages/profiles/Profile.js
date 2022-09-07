@@ -22,7 +22,7 @@ function Profile({ user }) {
         <div className="friends-list">
           {data &&
             <ul>
-              {" "}<span>MyDudes</span>
+              <span>MyDudes</span>
               {data.getOneUser.friends.map((friend, index) =>
                 <li key={friend._id}>
                   {friend.userName}

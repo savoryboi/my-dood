@@ -8,16 +8,22 @@
 
 .user-posts {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column-reverse;
   justify-items: center;
   margin: 25px auto 0;
-
 }
 
 .user-posts #myDoods {
   text-align: center;
   color: var(--blue);
   font-size: 40px;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row-reverse;
 }
 
 .profile-container {
@@ -27,7 +33,7 @@
 }
 
 .profile-container ul {
- list-style-type: none;
+  list-style-type: none;
 }
 
 .user-name {
@@ -70,6 +76,7 @@
 .post-card {
   background: white;
   border: 20px;
+  margin: 50px;
 }
 
 .post-card img {

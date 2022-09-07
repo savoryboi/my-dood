@@ -1,27 +1,45 @@
 .user-profile {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
 }
 
 .user-posts {
   display: flex;
   flex-direction: column-reverse;
   justify-items: center;
-  margin: 0 auto;
+  margin: 25px auto 0;
+
+}
+
+.user-posts #myDoods {
+  text-align: center;
+  color: var(--blue);
+  font-size: 40px;
 }
 
 .profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 20%;
-  height: 11%;
-  top: 0;
-  left: 0;
-  margin-top: 100px;
-  margin-left: 2%;
-  border-radius: 5%;
-  background-color: var(--blue);
+  padding: 25px 2% 0px 5%;
+  text-decoration: none;
+  font-size: larger;
+}
+
+.profile-container ul {
+ list-style-type: none;
+}
+
+.friends-list {
+  padding: 15px;
+  background-color: rgba(147, 147, 148, 0.463);
+  border-radius: 15px;
+}
+
+.friends-list span {
+  font-size: 20px;
+  font-weight: bolder;
+  color: var(--blue);
 }
 
 .user-img {
@@ -60,9 +78,4 @@
   height: 466px;
   width: 350px;
   z-index: 10;
-}
-
-.friends-list {
-  width: 100%;
-  background-color: var(--sage);
 }

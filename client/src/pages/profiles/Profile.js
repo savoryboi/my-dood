@@ -22,7 +22,7 @@ function Profile({ user }) {
         <div className="friends-list">
           {data &&
             <ul>
-              {" "}<span>My friends</span>
+              {" "}<span>MyDudes</span>
               {data.getOneUser.friends.map((friend, index) =>
                 <li key={friend._id}>
                   {friend.userName}
@@ -42,6 +42,8 @@ function Profile({ user }) {
               <img className="tl-dood" src={post.postPic} />
             </div>
           )}
+
+          <div id="myDoods">MyDoods</div>
         </div>}
     </div>
   );

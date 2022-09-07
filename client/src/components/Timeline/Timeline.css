@@ -1,3 +1,23 @@
+div#wotd-wrapper {
+  display: flex;
+  padding: 10px 5%;
+  justify-content: flex-end;
+}
+
+#wotd-wrapper .lil-wotd-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--blue);
+  padding: 7px 34px;
+  border-radius: 15px;
+}
+
+div#wotd-wrapper #wotd {
+  padding: 5px;
+  font-size: 20px;
+  color: var(--dark-grey);
+}
+
 .timeline {
   display: flex;
   flex-flow: wrap row;

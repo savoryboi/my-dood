@@ -35,8 +35,12 @@ function Search({ user }) {
             })
             .map((searchedUsers, index) =>
               <div className="result-container" key={index}>
-                {console.log(searchedUsers)}
-                <img src={searchedUsers.profilePic}></img>
+               
+                {!searchedUsers.profilePic && <img className='hidden' src={searchedUsers.profilePic}></img>}
+
+                {searchedUsers.profilePic && <img src={searchedUsers.profilePic}></img>}
+                
+           
                 <h3>
                   {searchedUsers.userName}
                 </h3>

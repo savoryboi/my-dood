@@ -9,13 +9,8 @@ const typeDefs = gql`
     bio: String
     friends: [User]
     posts: [Post]
+    profilePic: String
   }
-
-  # type Profile {
-  #   _id: ID!
-  #   userName: String!
-  #   bio: String!
-  # }
 
   type Post {
     _id: ID!

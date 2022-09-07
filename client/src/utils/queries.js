@@ -32,6 +32,7 @@ export const GET_NAMEID = gql`
     getAllUsers {
       _id
       userName
+      profilePic
     }
   }
 `;

@@ -28,6 +28,12 @@
     justify-content: space-around;
 }
 
+.result-container img {
+    height: 50px;
+    width: 50px;
+    z-index: 15;
+}
+
 .result-container h3 {
     margin: 10px;
     margin-right: 0;

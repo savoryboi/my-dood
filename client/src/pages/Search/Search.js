@@ -37,6 +37,7 @@ function Search({ user }) {
             })
             .map((searchedUsers, index) =>
               <div className="result-container" key={index}>
+                <img src={searchedUsers.profilePic} alt=""></img>
                 <h3>
                   {searchedUsers.userName}
                 </h3>

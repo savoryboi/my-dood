@@ -51,7 +51,7 @@ This app was developed by the following users. Please check out some of their ot
 
 ## Demo of App
 
-![Demo](./assets/mydood.gif.gif)
+![Demo](./server/public/images/mydood.gif.gif)
 
 ## Deployed link to App
 

@@ -1,27 +1,73 @@
+div#wotd-wrapper {
+  display: flex;
+  padding: 10px 5%;
+  justify-content: flex-end;
+}
+
+#wotd-wrapper .lil-wotd-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--blue);
+  padding: 7px 34px;
+  border-radius: 15px;
+}
+
+div#wotd-wrapper #wotd {
+  padding: 5px;
+  font-size: 20px;
+  color: var(--dark-grey);
+}
+
 .user-profile {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
 }
 
 .user-posts {
   display: flex;
   flex-direction: column-reverse;
   justify-items: center;
-  margin: 0 auto;
+  margin: 25px auto 0;
+
+}
+
+.user-posts #myDoods {
+  text-align: center;
+  color: var(--blue);
+  font-size: 40px;
 }
 
 .profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 20%;
-  height: 11%;
-  top: 0;
-  left: 0;
-  margin-top: 100px;
-  margin-left: 2%;
-  border-radius: 5%;
-  background-color: var(--blue);
+  padding: 25px 2% 0px 5%;
+  text-decoration: none;
+  font-size: larger;
+}
+
+.profile-container ul {
+ list-style-type: none;
+}
+
+.user-name {
+  font-style: oblique;
+}
+
+.friends-list {
+  padding: 15px;
+  background-color: rgba(147, 147, 148, 0.463);
+  border-radius: 15px;
+}
+
+.friends-list ul li {
+  font-size: 16px;
+}
+
+.friends-list span {
+  font-size: 20px;
+  font-weight: bolder;
+  color: var(--blue);
 }
 
 .user-img {
@@ -35,16 +81,6 @@
 
 .user-name {
   font-size: 32px;
-}
-
-.profile-info {
-  /* display: flex;
-  flex-direction: row; */
-  font-size: 24px;
-  text-align: left;
-  /* margin-left: 10%; */
-  /* align-self: flex-start;
-  flex-wrap: wrap; */
 }
 
 #user-bio {
@@ -62,7 +98,9 @@
   z-index: 10;
 }
 
-.friends-list {
-  width: 100%;
-  background-color: var(--sage);
+@media only screen and (max-width: 611px) {
+  .user-img {
+    width: 150px;
+    height: 150px;
+  }
 }

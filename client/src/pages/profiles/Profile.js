@@ -25,7 +25,7 @@ function Profile({ user }) {
         </p>
         <div className="friends-list">
           {data &&
-            <ul> <span>My friends</span>
+            <ul> <span>MyDudes</span>
               {data.getOneUser.friends.map((friend, index) =>
                 <li key={friend._id}>
                   {friend.userName}
@@ -36,13 +36,19 @@ function Profile({ user }) {
       </div>
 
       {data &&
+
+
         <div className="user-posts">
+
           {data.getOneUser.posts.map((post, index) =>
             <div key={index} className="post-card">
               <h3 className="user-display">{post.postText}</h3>
               <img className='tl-dood' src={post.postPic} />
             </div>
           )}
+
+            <div id="myDoods">MyDoods</div>
+
         </div>}
 
     </div>

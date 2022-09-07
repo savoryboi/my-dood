@@ -7,13 +7,10 @@ function Timeline({ user }) {
   const { data, loading, error } = useQuery(GET_ONE_USER, {
     variables: user
   });
-  // if(data) console.log(data.getOneUser.friends[0].posts[0].postPic);
   if (loading) return "Loading timeline...";
   if (error) throw new ApolloError("Uh oh!");
 
   let wotd = document.getElementById("wotd").innerText;
-
-  console.log(data);
 
   if (data.getOneUser.friends.length === 0) {
     return (
@@ -23,7 +20,6 @@ function Timeline({ user }) {
       </div>
     );
   } else {
-    // if()
     return (
       <main className="timeline">
         {data &&

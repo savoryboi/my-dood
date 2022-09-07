@@ -20,17 +20,19 @@ const resolvers = {
         .populate(["posts", "friends"])
         .populate({
           path: "friends",
-          populate: "posts",
+          populate: "posts"
         });
       console.log(user);
       return user;
     },
     async getUserByEmail(_, args) {
-      return await User.findBy(args.email).populate("posts");
+      return await User.findOne({ where: { email: args.email } }).populate(
+        "posts"
+      );
     },
     async getFriends(_, args) {
       return await User.findById(args.id).populate("friends");
-    },
+    }
   },
 
   Mutation: {
@@ -41,7 +43,7 @@ const resolvers = {
           password,
           userName,
           bio,
-          profilePic,
+          profilePic
         });
 
         const token = signToken(user);
@@ -70,7 +72,7 @@ const resolvers = {
     async addPost(_, { postText, postPic }) {
       return await Post.create({
         postText,
-        postPic,
+        postPic
       });
     },
     async addFriend(_, { friendId }, context) {
@@ -79,14 +81,14 @@ const resolvers = {
       return await User.findOneAndUpdate(
         { _id: context.user._id },
         {
-          $addToSet: { friends: [friendId] },
+          $addToSet: { friends: [friendId] }
         },
         {
-          new: true,
+          new: true
         }
       );
-    },
-  },
+    }
+  }
 };
 
 module.exports = resolvers;

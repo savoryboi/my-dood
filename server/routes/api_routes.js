@@ -41,11 +41,4 @@ api_router.post("/api/profilePic", upload.single("image"), async (req, res) => {
   res.send(`images/${req.file.filename}`);
 });
 
-// api_router.get("/images/:pic", async (req, res) => {
-//   console.log(req.params.pic);
-//   const images = await Post.find({ post_pic: req.params.pic });
-
-//   res.send(images.post_pic);
-// });
-
 module.exports = api_router;

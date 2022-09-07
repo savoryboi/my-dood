@@ -29,14 +29,13 @@
 }
 
 .result-container img {
-    height: 50px;
-    width: 50px;
-    z-index: 15;
+    height: 40px;
+    width: 40px;
+    border: 2px solid var(--sage)
 }
 
 .result-container h3 {
     margin: 10px;
-    margin-right: 0;
     padding-right: 5px;
 }
 

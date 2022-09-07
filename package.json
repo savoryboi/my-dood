@@ -10,7 +10,8 @@
     "dev": "concurrently \"npm run dev:server\"  \"npm run dev:client\"",
     "seed:todos": "cd ./server/seeds && node todo.js",
     "install:client": "cd ./client && npm i",
-    "install:server": "cd ./server && npm i"
+    "install:server": "cd ./server && npm i",
+    "build": "cd ./client && npm run build"
   },
   "repository": {
     "type": "git",

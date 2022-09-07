@@ -104,7 +104,7 @@ export const CanvasProvider = ({ children }) => {
       headers: {
         "content-type": "multipart/form-data",
         authorization: `Verify ${localStorage.getItem("token")}`,
-        title: document.getElementById('wotd').innerText
+        title: document.getElementById("wotd").innerText
       }
     };
     console.log(config);
@@ -116,7 +116,7 @@ export const CanvasProvider = ({ children }) => {
       });
     });
 
-    navigate("/Timeline");
+    navigate("/");
   };
   return (
     <CanvasContext.Provider

@@ -20,11 +20,9 @@ export const GET_ONE_USER = gql`
 `;
 export const GET_USER = gql`
   query getUserByEmail($email: String!) {
-    getOneUser(email: $email) {
-      _id
-      email
+    getUserByEmail(email: $email) {
       posts {
-        postPic
+        postText
       }
     }
   }

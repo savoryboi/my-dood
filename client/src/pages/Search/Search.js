@@ -2,13 +2,11 @@ import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { ADD_FRIEND } from "../../utils/mutations";
 import { GET_NAMEID } from "../../utils/queries";
-import './Search.css'
+import "./Search.css";
 
 function Search({ user }) {
   const [searchText, setSearchText] = useState("");
   const [userList, setUserList] = useState();
-
-  //   setFriend({ _id: user._id });
 
   const [addToFriends] = useMutation(ADD_FRIEND);
 
@@ -42,15 +40,15 @@ function Search({ user }) {
                 <h3>
                   {searchedUsers.userName}
                 </h3>
-                <button className="followBtn"
-                  onClick={(e) => {
-                    e.target.innerText = 'Added!';
-                    e.target.style.backgroundColor = 'hotpink';
+                <button
+                  className="followBtn"
+                  onClick={e => {
+                    e.target.innerText = "Added!";
+                    e.target.style.backgroundColor = "hotpink";
                     addToFriends({
                       variables: { friendId: searchedUsers._id }
-                    })
-                  }
-                  }
+                    });
+                  }}
                 >
                   Follow
                 </button>

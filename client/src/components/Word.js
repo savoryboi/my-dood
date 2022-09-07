@@ -22,8 +22,11 @@ function Word() {
   })
 
   return (
-    <div>
-      <h3 id='wotd'>{word}</h3>
+    <div id="wotd-wrapper">
+      <div className="lil-wotd-container">
+        <div><h3>WOTD: </h3></div>
+        <div id='wotd'> {word}</div>
+      </div>
     </div>
   )
 }

@@ -52,7 +52,7 @@ header {
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: var(--sage);
+  background: var(--dark-grey);
 }
 
 /*
@@ -69,10 +69,8 @@ header {
 
 /* General sidebar styles */
 .bm-menu {
-  /* padding: 2.5em 1.5em 0; */
   font-size: 1em;
   text-align: right;
-  /* border-radius: 25px 0px 0px 25px; */
   width: 150px;
 }
 

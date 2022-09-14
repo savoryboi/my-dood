@@ -55,7 +55,7 @@ This app was developed by the following users. Please check out some of their ot
 
 ## Deployed link to App
 
-- Click [HERE]() to use our App!
+- Click [HERE](https://my-dood.herokuapp.com/) to use our App!
 
 ## Link to Repository storing application
 

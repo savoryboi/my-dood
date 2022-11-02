@@ -1,4 +1,4 @@
-# MyDoods
+# MyDood
 
 ## Demo of App
 

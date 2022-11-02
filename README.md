@@ -1,5 +1,9 @@
 # MyDoods
 
+## Demo of App
+
+![Demo](./server/public/images/mydood.gif.gif)
+
 ## User Story
 
 ```
@@ -48,10 +52,6 @@ This app was developed by the following users. Please check out some of their ot
 - Palmer Sola- Click [HERE](https://github.com/palmersola)
 - Derek Bass - Click [HERE](https://github.com/Derjbass)
 - Mustafa Aboghalyoun - Click [HERE](https://github.com/KappaMustafa)
-
-## Demo of App
-
-![Demo](./server/public/images/mydood.gif.gif)
 
 ## Deployed link to App
 
